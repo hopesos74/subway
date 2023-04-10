@@ -50,13 +50,13 @@
         .clock {
             font-family: 'KorailRoundGothicBold';
             color: gray;
-            font-size: 5em;
+            font-size: 6em;
         }
 
         .date {
             font-family: 'KOTRA_GOTHIC';
             color: gray;
-            font-size: 3em;
+            font-size: 4em;
         }
 
         .weather {
@@ -262,6 +262,10 @@
                 } else {
 
                     var length_3up = arr_new_sub_3minam_up.length;
+
+                    if(length_3up>5) {
+                        length_3up = 3;
+                    }
                     
 
                     for (i = 0; i < length_3up; i++) {
@@ -311,6 +315,11 @@
 
                 } else {
                    var length_3dn = arr_new_sub_3minam_dn.length;
+
+                   if(length_3dn>5) {
+                        length_3dn = 3;
+                    }
+                    
                   //  var length_3dn = 5;
 
                     for (i = 0; i < length_3dn; i++) {
@@ -330,7 +339,9 @@
                         const minutes1 = Math.floor((timeLeft1 % (1000 * 60 * 60)) / (1000 * 60));
                         const seconds1 = Math.floor((timeLeft1 % (1000 * 60)) / 1000);
 
-                        var countdown_3minam_dn1 = (hours1 < 10 ? `0${hours1}` : hours1) +':' + (minutes1 < 10 ? `0${minutes1}` : minutes1)+ ':'+ (seconds1 < 10 ? `0${seconds1}` : seconds1);
+                      //  var countdown_3minam_dn1 = (hours1 < 10 ? `0${hours1}` : hours1) +':' + (minutes1 < 10 ? `0${minutes1}` : minutes1)+ ':'+ (seconds1 < 10 ? `0${seconds1}` : seconds1);
+                      var countdown_3minam_dn1 = (minutes1 < 10 ? `0${minutes1}` : minutes1)+ '분 '+ (seconds1 < 10 ? `0${seconds1}` : seconds1) +'초 ';
+                     
                      //   var countdown_3minam_dn1 = minutes1 +'' ;
                      //   $("#countdown_3minam_dn1").append(countdown_3minam_dn1);
                         $("#minam_dn").append("<span class='sche5'>"+ countdown_3minam_dn1 +"</span>   <span class='sche'>" +arv_3minam_dn_tm+"</span><br>");
@@ -459,6 +470,11 @@
 
 
                     var length4 = arr_new_sub_4minam_dn.length;
+
+                    if(length4>5) {
+                        length4 = 3;
+                    }
+                    
                   //  var length4 = 5;
 
                     for (i = 0; i < length4; i++) {
