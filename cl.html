@@ -25,6 +25,23 @@
             margin: 1px 1px 1px 1px;
             text-align: center;
         }
+        .clock {
+            height: 25px;
+            margin: 5px 5px 5px 5px;
+            text-align: center;
+            background: orange;
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: black;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .top {
+            width: 300px;
+            height: 25px;
+            margin: 1px 1px 1px 1px;
+            text-align: center;
+        }
 
         .item1 {
             background: #f6f3f3;
@@ -77,6 +94,14 @@
         .sche1 {
             font-family: 'GangwonEdu_OTFBoldA';
             color: black;
+            font-size: 1em;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .sche2 {
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: red;
             font-size: 1em;
             margin-top: 3px;
             margin-bottom: 3px;
@@ -164,7 +189,7 @@
 
         } else {
             isWeekday ? day_cd = 8 : isSaturday ? day_cd = 7 : day_cd = 9;
-            isWeekday ? day_han = "평일" : isSaturday ? day_han = "토요일" : day_han = "일요일";
+            isWeekday ? day_han = "평일" : isSaturday ? day_han = "토" : day_han = "일";
 
         }
 
@@ -188,6 +213,8 @@
             url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=301"
         })
             .done(function (p) {
+
+                $("#day_hann").append(day_han);
 
                 var time = new Date();
                 var years = time.getFullYear();
@@ -323,14 +350,20 @@
                     }
 
                     for (i = 0; i < length_dn; i++) {
+
                         var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
 
-                        if (i < 2) {
+                       
+                            if (i < 2) {
                             $("#301_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
                             $("#301_dn").append("<div class='gr-line'></div>");
                         } else {
                             $("#301_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                       
+
                         }
+
+                       
                     }
 
                 }
@@ -3411,6 +3444,53 @@
 
     </script>
 
+
+
+<div class="clock">열차도착 시간(<span id="day_hann"></span>)
+    <span id="apm" class="time">clock</span>,
+    <span id="clock" class="time">apm</span>
+</div>
+
+
+<script>
+    var Target = document.getElementById("clock");
+    var Target_apm = document.getElementById("apm");
+    function clock() {
+        var time = new Date();
+        var years = time.getFullYear();
+        var month = time.getMonth();
+        var date = time.getDate();
+        var day = time.getDay();
+        var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+
+        Target.innerText =
+            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+        Target_apm.innerText = `${years}.${month + 1}.${date}(${week[day]})`;
+
+    }
+    clock();
+    setInterval(clock, 1000); // 1초마다 실행
+</script>
+
+
+
+<div class="container">
+    <div class="top item7">
+        <p class="sche1">수영행</p>
+    </div>
+    <div class="top item8">
+        <p class="sche1">역사명</p>
+    </div>
+    <div class="top item9">
+        <p class="sche1">대저행</p>
+    </div>
+    
+</div>
     <div class="container">
         <div class="item item7">
             <p id="301_up" class="sche1"></p>
@@ -3425,7 +3505,7 @@
         <div class="item item9">
             <p id="301_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3443,7 +3523,7 @@
         <div class="item item9">
             <p id="302_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3461,7 +3541,7 @@
         <div class="item item9">
             <p id="303_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3479,7 +3559,7 @@
         <div class="item item9">
             <p id="304_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3497,7 +3577,7 @@
         <div class="item item9">
             <p id="305_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3515,7 +3595,7 @@
         <div class="item item9">
             <p id="306_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3533,7 +3613,7 @@
         <div class="item item9">
             <p id="307_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3551,7 +3631,7 @@
         <div class="item item9">
             <p id="308_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3569,7 +3649,7 @@
         <div class="item item9">
             <p id="309_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
     <div class="container">
@@ -3586,7 +3666,7 @@
         <div class="item item9">
             <p id="310_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
     <div class="container">
@@ -3603,7 +3683,7 @@
         <div class="item item9">
             <p id="311_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3621,7 +3701,7 @@
         <div class="item item9">
             <p id="312_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3639,7 +3719,7 @@
         <div class="item item9">
             <p id="313_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3657,7 +3737,7 @@
         <div class="item item9">
             <p id="314_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3675,7 +3755,7 @@
         <div class="item item9">
             <p id="315_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3693,7 +3773,7 @@
         <div class="item item9">
             <p id="316_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
 
@@ -3711,7 +3791,7 @@
         <div class="item item9">
             <p id="317_dn" class="sche1"></p>
         </div>
-        </h3>
+        
     </div>
 
     <script>
