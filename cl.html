@@ -1,26 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 
 <head>
-    <title>미남역 열차도착 정보</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/animate.css" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-    <script src="./js/modernizr-3.5.0.min.js"></script>
-
-
-    <link href="css/small-business.css" rel="stylesheet">
-
-    <script src="https://kit.fontawesome.com/db86b98b0a.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="css/weather-icons-wind.css">
-    <link rel="stylesheet" href="css/weather-icons-wind.min.css">
-    <link rel="stylesheet" href="css/weather-icons.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
+        .container {
+            background: beige;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            /*  flex-flow: row wrap;  */
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            margin: 5px 5px 5px 5px;
+        }
+
+        .item {
+            width: 300px;
+            height: 75px;
+            margin: 1px 1px 1px 1px;
+            text-align: center;
+        }
+
+        .item1 {
+            background: #f6f3f3;
+
+        }
+
+        .item2 {
+            background: #f6f2f4;
+        }
+
+        .item3 {
+            background: #eff3f6;
+        }
+
+        .item4 {
+            background: #f6f2f2;
+
+        }
+
+        .item5 {
+            background: #f4edef;
+        }
+
+        .item6 {
+            background: #eef0f3;
+        }
+
+        .item7 {
+            background: #f0eded;
+
+        }
+
+        .item8 {
+            background: #f2ecee;
+        }
+
+        .item9 {
+            background: #eef0f2;
+        }
+
+        .sche {
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: black;
+            font-size: 2.5em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sche1 {
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: black;
+            font-size: 1em;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .gr-line {
+            border-bottom: 1px solid #24b540;
+            margin: 1px;
+        }
+
+
+
+
         @font-face {
             font-family: 'KOTRA_GOTHIC';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_GOTHIC.woff') format('woff');
@@ -35,67 +104,25 @@
             font-style: normal;
         }
 
+
         @font-face {
-            font-family: '777Balsamtint';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('woff');
+            font-family: 'GangwonEdu_OTFBoldA';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
-
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .clock {
-            font-family: 'KorailRoundGothicBold';
-            color: gray;
-            font-size: 5em;
-        }
-
-        .date {
-            font-family: 'KOTRA_GOTHIC';
-            color: gray;
-            font-size: 3em;
-        }
-
-        .weather {
-            font-family: '777Balsamtint';
-            color: gray;
-            font-size: 3em;
-        }
-
-        .s_weather {
-            font-family: '777Balsamtint';
-            letter-spacing: -3px;
-            color: gray;
-            font-size: 2em;
-        }
-
-
-        .wrap {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .box {
-            text-align: center;
-        }
     </style>
-
 </head>
 
 <body>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 
+
+
     <script>
-
-
         // 오늘 날짜를 가져옵니다.
         const today = new Date();
 
@@ -106,19 +133,18 @@
 
         // 공휴일 목록을 작성합니다.
         const holidays = [
-            new Date('2022-01-01'), // 신정
-            new Date('2022-02-01'), // 설날
-            new Date('2022-02-02'), // 설날
-            new Date('2022-02-03'), // 설날
-            new Date('2022-03-01'), // 삼일절
-            new Date('2022-05-05'), // 어린이날
-            new Date('2022-05-08'), // 석가탄신일
-            new Date('2022-06-06'), // 현충일
-            new Date('2022-08-15'), // 광복절
-            new Date('2022-09-14'), // 추석
-            new Date('2022-09-15'), // 추석
-            new Date('2022-10-03'), // 개천절
-            new Date('2022-12-25') // 성탄절
+
+            new Date('2023-05-05'), // 어린이날
+            new Date('2023-05-27'), // 석가탄신일
+            new Date('2023-05-29'), // 대체공휴일
+            new Date('2023-06-06'), // 현충일
+            new Date('2023-08-15'), // 광복절
+            new Date('2023-09-28'), // 추석
+            new Date('2023-09-29'), // 추석
+            new Date('2023-09-30'), // 추석
+            new Date('2023-10-03'), // 개천절
+            new Date('2023-10-09'), // 한글날
+            new Date('2023-12-25') // 성탄절
         ];
 
         // 오늘이 공휴일인지 확인합니다.
@@ -142,43 +168,31 @@
 
         }
 
-        console.log(day_cd);
-        console.log(day_han);
-        console.log(today.getDay())
 
         var h1 = today.getHours();
         var m1 = today.getMinutes();
         var s1 = today.getSeconds();
-        var t1 = h1+''+m1+''+s1;
-       // var t1 = (h1 < 10 ? `0${h1}` : h1) + '' + (m1 < 10 ? `0${m1}` : m1) + '' + (s1 < 10 ? `0${s1}` : s1);
+        var t1 = h1 + '' + m1 + '' + s1;
 
-        if(t1<2040 && t1>0){
-             if(day_cd == 9){
+        if (t1 < 2040 && t1 > 0) {
+            if (day_cd == 9) {
                 day_cd = 7
-             } else if(day_cd ==7){
+            } else if (day_cd == 7) {
                 day_cd = 8
-             }
-        } 
-
-      
-        console.log(t1);
-        console.log(day_cd);
+            }
+        }
 
 
         $.ajax({
             method: "GET",
-
-            //url: "http://hopesos.dothome.co.kr/alltimeposter.json"
-            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=309"
-            //url: "alltimeposter.json"
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=301"
         })
             .done(function (p) {
-                console.log(p);
+
                 var time = new Date();
                 var years = time.getFullYear();
                 var month = time.getMonth();
                 var date = time.getDate();
-
                 var hours = time.getHours();
 
                 if (hours < 10 && hours > 0) {
@@ -193,239 +207,23 @@
                 var seconds = time.getSeconds();
 
                 var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
-                //  console.log(cur_time);
 
-                var arr_new_3minam1 = new Array();
-                var arr_new_sub_3minam_up = new Array();
-                var arr_new_sub_3minam_dn = new Array();
-
-                for (i = 0; i < p.body.length; i++) {
-                    arr_new_3minam1.push([p.body[i].trnNo, p.body[i].arvTm]);
-                }
-
-                
-
-                    const arr_new_3minam = arr_new_3minam1.map(row => {
-                        return row.map(str => {
-                            if (str === "000425") {
-                                return "240425";
-                            } else if (str === "000030") {
-                                return "240030";
-                            } else if (str === "001655") {
-                                return "241655";
-                            }
-                            else {
-                                return str;
-                            }
-                        });
-                    });
-
-                
-
-                // console.log(arr_new_3minam); 
-
-                arr_new_3minam.sort(function (a, b) {
-                    return a[0] - b[0];
-                });
-
-                let sorted_new_arr_3minam = [];
-
-                // 작은 값부터 큰 값 순으로 새로운 배열에 저장
-                for (let i = 0; i < arr_new_3minam.length; i++) {
-                    sorted_new_arr_3minam.push(arr_new_3minam[i]);
-                }
-
-                // console.log(sorted_new_arr_3minam);
-
-
-                for (i = 0; i < sorted_new_arr_3minam.length; i++) {
-
-                    new_3sub = cur_time - arr_new_3minam[i][1];
-                    // console.log(sorted_new_arr_4minam_dn[i][0]);
-
-                    if (new_3sub < 0) {
-                        if (sorted_new_arr_3minam[i][0] % 2 == 0) {
-                            arr_new_sub_3minam_dn.push(sorted_new_arr_3minam[i]);
-                        } else {
-                            arr_new_sub_3minam_up.push(sorted_new_arr_3minam[i]);
-                        }
-                    }
-                }
-
-                $("#day_hann").append(day_han);
-
-
-                if (cur_time > 240030 && cur_time <= 245959) {
-
-                    $("#minam_up").append("열차운행 종료<br>");
-                    $("#minam_up").append("<div class='gr-line'></div>");
-                } else {
-
-                    var length_3up = arr_new_sub_3minam_up.length;
-
-                    if(length_3up>5) {
-                        length_3up = 3;
-                    }
-                    
-
-                    for (i = 0; i < length_3up; i++) {
-
-                        var arv_3minam_up_tm = arr_new_sub_3minam_up[i][1].substr(0, 2) + ':' + arr_new_sub_3minam_up[i][1].substr(2, 2) + ':' + arr_new_sub_3minam_up[i][1].substr(4, 2);
-
-                        $("#minam_up").append(arv_3minam_up_tm + "<br>");
-                        $("#minam_up").append("<div class='gr-line'></div>");
-                    }
-
-
-                    const ho_up = arr_new_sub_3minam_up[0][1].substr(0, 2);
-                    const mi_up = arr_new_sub_3minam_up[0][1].substr(2, 2);
-                    const se_up = arr_new_sub_3minam_up[0][1].substr(4, 2);
-
-
-                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
-
-                    // 1초마다 남은 시간 업데이트
-                    setInterval(function () {
-                        // 현재 날짜와의 차이 계산
-                        const now = new Date().getTime();
-                        const timeLeft = targetDate_up - now;
-
-                        // 남은 시간 계산
-                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                        // 결과 출력
-                        const countdownElement = document.getElementById("countdown_3minam_up");
-                        countdownElement.innerHTML = `(${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} 후 열차도착)`;
-
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "열차 출발";
-                        }
-                    }, 1000);
-
-                }
-                if (cur_time > 241655 && cur_time <= 245959) {
-
-                    $("#minam_dn").append("<span class='sche'>열차운행 종료</span>");
-                    $("#minam_dn").append("<div class='gr-line'></div>");
-
-                } else {
-                   var length_3dn = arr_new_sub_3minam_dn.length;
-
-                   if(length_3dn>5) {
-                        length_3dn = 3;
-                    }
-                    
-                  //  var length_3dn = 5;
-
-                    for (i = 0; i < length_3dn; i++) {
-                        var arv_3minam_dn_tm = arr_new_sub_3minam_dn[i][1].substr(0, 2) + ':' + arr_new_sub_3minam_dn[i][1].substr(2, 2) + ':' + arr_new_sub_3minam_dn[i][1].substr(4, 2);
-                       
-                        const ho_dn_i = arr_new_sub_3minam_dn[i][1].substr(0, 2);
-                        const mi_dn_i = arr_new_sub_3minam_dn[i][1].substr(2, 2);
-                        const se_dn_i = arr_new_sub_3minam_dn[i][1].substr(4, 2);
-                        const targetDate_dn_i = new Date(years, month, date, ho_dn_i, mi_dn_i, se_dn_i);
-
-                        const now1 = new Date().getTime();
-                        const timeLeft1 = targetDate_dn_i - now1;
-
-                        // 남은 시간 계산
-                        const days1 = Math.floor(timeLeft1 / (1000 * 60 * 60 * 24));
-                        const hours1 = Math.floor((timeLeft1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const minutes1 = Math.floor((timeLeft1 % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds1 = Math.floor((timeLeft1 % (1000 * 60)) / 1000);
-
-                      //  var countdown_3minam_dn1 = (hours1 < 10 ? `0${hours1}` : hours1) +':' + (minutes1 < 10 ? `0${minutes1}` : minutes1)+ ':'+ (seconds1 < 10 ? `0${seconds1}` : seconds1);
-                      var countdown_3minam_dn1 = (minutes1 < 10 ? `0${minutes1}` : minutes1)+ '분 '+ (seconds1 < 10 ? `0${seconds1}` : seconds1) +'초 ';
-                     
-                     //   var countdown_3minam_dn1 = minutes1 +'' ;
-                     //   $("#countdown_3minam_dn1").append(countdown_3minam_dn1);
-                        $("#minam_dn").append("<span class='sche5'>"+ countdown_3minam_dn1 +"</span>   <span class='sche'>" +arv_3minam_dn_tm+"</span><br>");
-                        $("#minam_dn").append("<div class='gr-line'></div>");
-
-                        console.log(countdown_3minam_dn1);
-                    }
-
-                    const ho_dn = arr_new_sub_3minam_dn[0][1].substr(0, 2);
-                    const mi_dn = arr_new_sub_3minam_dn[0][1].substr(2, 2);
-                    const se_dn = arr_new_sub_3minam_dn[0][1].substr(4, 2);
-
-                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
-                    // 1초마다 남은 시간 업데이트
-                    setInterval(function () {
-                        // 현재 날짜와의 차이 계산
-                        const now = new Date().getTime();
-                        const timeLeft = targetDate_dn - now;
-
-                        // 남은 시간 계산
-                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                        // 결과 출력
-                        const countdownElement = document.getElementById("countdown_3minam_dn");
-                        countdownElement.innerHTML = `(${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} 후 열차도착)`;
-
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "열차 출발";
-                        }
-                    }, 1000);
-
-                }
-
-            });
-
-        $.ajax({
-            method: "GET",
-            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd="+day_cd+"&lnCd=4&stinCd=401"
-        })
-            .done(function (p) {
-                console.log(p);
-                var time = new Date();
-                var years = time.getFullYear();
-                var month = time.getMonth();
-                var date = time.getDate();
-
-                var hours = time.getHours();
-
-                if (hours < 10 && hours > 0) {
-                    hours = '0' + hours;
-                } else if (hours == 0) {
-                    hours = '24';
-                } else {
-                    hours = hours;
-                }
-                var minutes = time.getMinutes();
-                var seconds = time.getSeconds();
-
-                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
-                //console.log(cur_time);
-
-                var arr_new_4minam = new Array();
-                var arr_new_sub_4minam_dn = new Array();
+                var arr_station = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
 
                 for (i = 0; i < p.body.length; i++) {
-                    arr_new_4minam.push([p.body[i].trnNo, p.body[i].arvTm]);
+                    arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
                 }
-                // console.log(arr_new_4minam);
 
-                const arr_new_4minam_dn = arr_new_4minam.map(row => {
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_24station = arr_station.map(row => {
                     return row.map(str => {
-                        if (str === "000900") {
-                            return "240900";
-                        } else if (str === "000200") {
-                            return "240200";
-                        } else if (str === "001200") {
-                            return "241200";
-                        } else if (str === "002040") {
-                            return "242040";
+                        if (str === "000240") {
+                            return "240240";
+                        } else if (str === "001900") {
+                            return "241900";
                         }
                         else {
                             return str;
@@ -433,210 +231,3496 @@
                     });
                 });
 
-                // console.log(arr_new_4minam_dn);
+                // 도착시간을 24시간제로 변경
 
-                arr_new_4minam_dn.sort(function (a, b) {
+                arr_24station.sort(function (a, b) {
                     return a[0] - b[0];
                 });
+                // 시간순으로 정렬
+                console.log(arr_24station);
 
-                let sorted_new_arr_4minam_dn = [];
+                for (i = 0; i < arr_24station.length; i++) {
 
-                // 작은 값부터 큰 값 순으로 새로운 배열에 저장
-                for (let i = 0; i < arr_new_4minam_dn.length; i++) {
-                    sorted_new_arr_4minam_dn.push(arr_new_4minam_dn[i]);
-                }
+                    new_3sub = cur_time - arr_24station[i][1];
+                    // 현재시간과 도착시간 차이
 
-                for (i = 0; i < sorted_new_arr_4minam_dn.length; i++) {
-
-                    new_sub = cur_time - sorted_new_arr_4minam_dn[i][1];
-
-                    if (new_sub < 0) {
-                        if (sorted_new_arr_4minam_dn[i][0] % 2 == 0) {
-                            arr_new_sub_4minam_dn.push(sorted_new_arr_4minam_dn[i]);
-
-                        } else if (new_sub > 0) {
-                            $("#4minam_dn").append("열차운행 종료 <br>");
-                            $("#4minam_dn").append("<div class='gr-line'></div>");
+                    if (new_3sub < 0) {
+                        if (arr_24station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_24station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_24station[i]);
+                            //열차번호가 홀수이면 상선
                         }
                     }
                 }
+                //  $("#day_hann").append(day_han);
 
+                if (cur_time > 241900 && cur_time <= 245959) {
 
-                if (cur_time > 242040 && cur_time <= 245959) {
-
-                    $("#4minam_dn").append("열차운행 종료<br>");
-                    $("#4minam_dn").append("<div class='gr-line'></div>");
+                    $("#301_up").append("열차운행 종료<br>");
+                    $("#301_up").append("<div class='gr-line'></div>");
                 } else {
 
+                    var length_up = arr_up.length;
 
-                    var length4 = arr_new_sub_4minam_dn.length;
-
-                    if(length4>5) {
-                        length4 = 3;
-                    }
-                    
-                  //  var length4 = 5;
-
-                    for (i = 0; i < length4; i++) {
-                        var arv_4minam_dn_tm = arr_new_sub_4minam_dn[i][1].substr(0, 2) + ':' + arr_new_sub_4minam_dn[i][1].substr(2, 2) + ':' + arr_new_sub_4minam_dn[i][1].substr(4, 2);
-                        $("#4minam_dn").append(arv_4minam_dn_tm + "<br>");
-                        $("#4minam_dn").append("<div class='gr-line'></div>");
+                    if (length_up > 3) {
+                        length_up = 3;
                     }
 
-                    // 타겟 날짜 설정 (년, 월 - 1, 일, 시, 분, 초)
-                    const ho = arr_new_sub_4minam_dn[0][1].substr(0, 2);
-                    const mi = arr_new_sub_4minam_dn[0][1].substr(2, 2);
-                    const se = arr_new_sub_4minam_dn[0][1].substr(4, 2);
 
-                    const targetDate = new Date(years, month, date, ho, mi, se);
-
-                    // 1초마다 남은 시간 업데이트
-                    setInterval(function () {
-                        // 현재 날짜와의 차이 계산
-                        const now = new Date().getTime();
-                        const timeLeft = targetDate - now;
-
-                        // 남은 시간 계산
-                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                        // 결과 출력
-                        const countdownElement = document.getElementById("countdown_4minam");
-                        countdownElement.innerHTML = `(${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} 후 열차도착)`;
-
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "열차 통과";
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#301_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#301_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#301_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
-                    }, 1000);
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_301_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 235900 && cur_time <= 245959) {
+                    $("#301_dn").append("열차운행 종료");
+                    $("#301_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#301_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#301_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#301_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
 
                 }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_301_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
             });
 
 
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=302"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_24station = arr_station.map(row => {
+                    return row.map(str => {
+                        if (str === "000015") {
+                            return "240015";
+                        } else if (str === "001635") {
+                            return "241635";
+                        } else if (str === "000100") {
+                            return "240100";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_24station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_24station);
+
+                for (i = 0; i < arr_24station.length; i++) {
+
+                    new_3sub = cur_time - arr_24station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_24station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_24station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_24station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 241635 && cur_time <= 245959) {
+
+                    $("#302_up").append("열차운행 종료<br>");
+                    $("#302_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#302_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#302_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#302_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_302_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 240100 && cur_time <= 245959) {
+                    $("#302_dn").append("열차운행 종료");
+                    $("#302_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#302_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#302_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#302_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_302_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=303"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_24station = arr_station.map(row => {
+                    return row.map(str => {
+                        if (str === "001435") {
+                            return "241435";
+                        } else if (str === "000250") {
+                            return "240250";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_24station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_24station);
+
+                for (i = 0; i < arr_24station.length; i++) {
+
+                    new_3sub = cur_time - arr_24station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_24station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_24station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_24station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 241435 && cur_time <= 245959) {
+
+                    $("#303_up").append("열차운행 종료<br>");
+                    $("#303_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#303_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#303_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#303_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_303_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 240250 && cur_time <= 245959) {
+                    $("#303_dn").append("열차운행 종료");
+                    $("#303_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#303_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#303_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#303_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_303_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=304"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_24station = arr_station.map(row => {
+                    return row.map(str => {
+                        if (str === "001230") {
+                            return "241230";
+                        } else if (str === "000505") {
+                            return "240505";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_24station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_24station);
+
+                for (i = 0; i < arr_24station.length; i++) {
+
+                    new_3sub = cur_time - arr_24station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_24station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_24station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_24station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 241230 && cur_time <= 245959) {
+
+                    $("#304_up").append("열차운행 종료<br>");
+                    $("#304_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#304_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#304_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#304_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_304_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 240505 && cur_time <= 245959) {
+                    $("#304_dn").append("열차운행 종료");
+                    $("#304_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#304_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#304_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#304_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_304_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            
+
+            });
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=305"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000740") {
+                            return "240740";
+                        } else if (str === "000700") {
+                            return "240700";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 240740 && cur_time <= 245959) {
+
+                    $("#305_up").append("열차운행 종료<br>");
+                    $("#305_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#305_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#305_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#305_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_305_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 240700 && cur_time <= 245959) {
+                    $("#305_dn").append("열차운행 종료");
+                    $("#305_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#305_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#305_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#305_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_305_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=306"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000605") {
+                            return "240605";
+                        } else if (str === "001120") {
+                            return "241120";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 240605 && cur_time <= 245959) {
+
+                    $("#306_up").append("열차운행 종료<br>");
+                    $("#306_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#306_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#306_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#306_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_306_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 241120 && cur_time <= 245959) {
+                    $("#306_dn").append("열차운행 종료");
+                    $("#306_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#306_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#306_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#306_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_306_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=307"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000045") {
+                            return "240045";
+                        } else if (str === "000420") {
+                            return "240420";
+                        } else if (str === "001300") {
+                            return "241300";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 240420 && cur_time <= 245959) {
+
+                    $("#307_up").append("열차운행 종료<br>");
+                    $("#307_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#307_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#307_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#307_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_307_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 241300 && cur_time <= 245959) {
+                    $("#307_dn").append("열차운행 종료");
+                    $("#307_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#307_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#307_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#307_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_307_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=308"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000230") {
+                            return "240230";
+                        } else if (str === "000235") {
+                            return "240235";
+                        } else if (str === "001450") {
+                            return "241450";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 240235 && cur_time <= 245959) {
+
+                    $("#308_up").append("열차운행 종료<br>");
+                    $("#308_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#308_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#308_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#308_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_308_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 241450 && cur_time <= 245959) {
+                    $("#308_dn").append("열차운행 종료");
+                    $("#308_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#308_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#308_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#308_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_308_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=309"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000425") {
+                            return "240425";
+                        } else if (str === "000030") {
+                            return "240030";
+                        } else if (str === "001655") {
+                            return "241655";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 240030 && cur_time <= 245959) {
+
+                    $("#309_up").append("열차운행 종료<br>");
+                    $("#309_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#309_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#309_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#309_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_309_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+
+
+
+                if (cur_time > 241655 && cur_time <= 245959) {
+                    $("#309_dn").append("열차운행 종료");
+                    $("#309_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#309_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#309_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#309_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_309_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=310"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000855") {
+                            return "240855";
+                        } else if (str === "002125") {
+                            return "242125";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 235615 && cur_time <= 245959) {
+
+                    $("#310_up").append("<div class='sche1'>열차운행 종료</div>");
+                    $("#310_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#310_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#310_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#310_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_310_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+
+
+
+
+                if (cur_time > 242125 && cur_time <= 245959) {
+                    $("#310_dn").append("<div class='sche1'>열차운행 종료</div>");
+                    $("#310_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#310_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#310_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#310_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_310_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=311"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "001055") {
+                            return "241055";
+                        } else if (str === "002325") {
+                            return "242325";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 235420 && cur_time <= 245959) {
+
+                    $("#311_up").append("열차운행 종료<br>");
+                    $("#311_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#311_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#311_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#311_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_311_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 242325 && cur_time <= 245959) {
+                    $("#311_dn").append("열차운행 종료");
+                    $("#311_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#311_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#311_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#311_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_311_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=312"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "001240") {
+                            return "241240";
+                        } else if (str === "002520") {
+                            return "242520";
+                        } else if (str === "000240") {
+                            return "240240";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 235235 && cur_time <= 245959) {
+
+                    $("#312_up").append("열차운행 종료<br>");
+                    $("#312_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#312_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#312_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#312_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_312_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 242520 && cur_time <= 245959) {
+                    $("#312_dn").append("열차운행 종료");
+                    $("#312_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#312_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#312_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#312_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_312_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=313"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000410") {
+                            return "240410";
+                        } else if (str === "001410") {
+                            return "241410";
+                        } else if (str === "002650") {
+                            return "242650";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 234800 && cur_time <= 245959) {
+
+                    $("#313_up").append("열차운행 종료<br>");
+                    $("#313_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#313_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#313_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#313_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_313_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 242650 && cur_time <= 245959) {
+                    $("#313_dn").append("열차운행 종료");
+                    $("#313_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#313_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#313_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#313_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_313_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=314"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000635") {
+                            return "240635";
+                        } else if (str === "001635") {
+                            return "241635";
+                        } else if (str === "003210") {
+                            return "243210";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 234540 && cur_time <= 245959) {
+
+                    $("#314_up").append("열차운행 종료<br>");
+                    $("#314_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#314_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#314_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#314_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_314_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 243210 && cur_time <= 245959) {
+                    $("#314_dn").append("열차운행 종료");
+                    $("#314_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#314_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#314_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#314_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_314_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=315"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000920") {
+                            return "240920";
+                        } else if (str === "001920") {
+                            return "241920";
+                        } else if (str === "003455") {
+                            return "243455";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 234305 && cur_time <= 245959) {
+
+                    $("#315_up").append("열차운행 종료<br>");
+                    $("#315_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#315_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#315_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#315_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_315_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 243455 && cur_time <= 245959) {
+                    $("#315_dn").append("열차운행 종료");
+                    $("#315_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#315_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#315_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#315_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_315_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=316"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "001115") {
+                            return "241115";
+                        } else if (str === "002115") {
+                            return "242115";
+                        } else if (str === "003645") {
+                            return "243645";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 234115 && cur_time <= 245959) {
+
+                    $("#316_up").append("열차운행 종료<br>");
+                    $("#316_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#316_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#316_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#316_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_316_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 243645 && cur_time <= 245959) {
+                    $("#316_dn").append("열차운행 종료");
+                    $("#316_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#316_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#316_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#316_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_316_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+
+        $.ajax({
+            method: "GET",
+            url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=317"
+        })
+            .done(function (p) {
+
+                var time = new Date();
+                var years = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var hours = time.getHours();
+
+                if (hours < 10 && hours > 0) {
+                    hours = '0' + hours;
+                } else if (hours == 0) {
+                    hours = '24';
+                } else {
+                    hours = hours;
+                }
+
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+
+                var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                var arr_station1 = new Array();
+                var arr_up = new Array();
+                var arr_dn = new Array();
+
+                for (i = 0; i < p.body.length; i++) {
+                    arr_station1.push([p.body[i].trnNo, p.body[i].arvTm]);
+                }
+
+                //새로운 배열에 열차번호와 도착시간 저장
+
+                const arr_station = arr_station1.map(row => {
+                    return row.map(str => {
+                        if (str === "000100") {
+                            return "240100";
+                        } else if (str === "002300") {
+                            return "242300";
+                        } else if (str === "003830") {
+                            return "243830";
+                        }
+                        else {
+                            return str;
+                        }
+                    });
+                });
+
+                // 도착시간을 24시간제로 변경
+
+                arr_station.sort(function (a, b) {
+                    return a[0] - b[0];
+                });
+                // 시간순으로 정렬
+                console.log(arr_station);
+
+                for (i = 0; i < arr_station.length; i++) {
+
+                    new_3sub = cur_time - arr_station[i][1];
+                    // 현재시간과 도착시간 차이
+
+                    if (new_3sub < 0) {
+                        if (arr_station[i][0] % 2 == 0) {
+                            arr_dn.push(arr_station[i]);
+                            //열차번호가 짝수이면 하선
+                        } else {
+                            arr_up.push(arr_station[i]);
+                            //열차번호가 홀수이면 상선
+                        }
+                    }
+                }
+                //  $("#day_hann").append(day_han);
+
+                if (cur_time > 234000 && cur_time <= 245959) {
+
+                    $("#317_up").append("열차운행 종료<br>");
+                    $("#317_up").append("<div class='gr-line'></div>");
+                } else {
+
+                    var length_up = arr_up.length;
+
+                    if (length_up > 3) {
+                        length_up = 3;
+                    }
+
+
+                    for (i = 0; i < length_up; i++) {
+                        var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                        if (i < 2) {
+                            $("#317_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            $("#317_up").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#317_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                        }
+                    }
+                }
+
+
+
+                const ho_up = arr_up[0][1].substr(0, 2);
+                const mi_up = arr_up[0][1].substr(2, 2);
+                const se_up = arr_up[0][1].substr(4, 2);
+
+
+                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_up - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_317_up");
+                    countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "수영행 열차 출발";
+                    }
+                }, 1000);
+
+                if (cur_time > 243830 && cur_time <= 245959) {
+                    $("#317_dn").append("열차운행 종료");
+                    $("#317_dn").append("<div class='gr-line'></div>");
+                } else {
+                    var length_dn = arr_dn.length;
+
+                    if (length_dn > 3) {
+                        length_dn = 3;
+                    }
+
+                    for (i = 0; i < length_dn; i++) {
+                        var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                        if (i < 2) {
+                            $("#317_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            $("#317_dn").append("<div class='gr-line'></div>");
+                        } else {
+                            $("#317_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                        }
+                    }
+
+                }
+
+
+                const ho_dn = arr_dn[0][1].substr(0, 2);
+                const mi_dn = arr_dn[0][1].substr(2, 2);
+                const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                // 1초마다 남은 시간 업데이트
+                setInterval(function () {
+                    // 현재 날짜와의 차이 계산
+                    const now = new Date().getTime();
+                    const timeLeft = targetDate_dn - now;
+
+                    // 남은 시간 계산
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // 결과 출력
+                    const countdownElement = document.getElementById("count_317_dn");
+                    countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                    // 타겟 날짜가 지나면 종료
+                    if (timeLeft < 0) {
+                        clearInterval();
+                        countdownElement.innerHTML = "대저행 열차 출발";
+                    }
+                }, 1000);
+
+
+            });
+
+
+
+
+
     </script>
 
-
-
-
-    <div class="top-bar">
-        <div class="sche3">
-            <center>미남역 열차도착(<span id="day_hann"></span>) </center>
+    <div class="container">
+        <div class="item item7">
+            <p id="301_up" class="sche1"></p>
         </div>
+        <div class="item item8">
+            <div class="sche1">301 수영</div>
+            <div class='gr-line'></div>
+            <div id="count_301_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_301_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="301_dn" class="sche1"></h3>
+        </div>
+        </h3>
     </div>
 
-    <div class="wrap">
-        <div class="box">
-            <span id="clock" class="clock">clock</span><br>
-            <span id="apm" class="date">apm</span><br>
-        </div>
 
+    <div class="container">
+        <div class="item item7">
+            <p id="302_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">302 망미</div>
+            <div class='gr-line'></div>
+            <div id="count_302_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_302_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="302_dn" class="sche1"></h3>
+        </div>
+        </h3>
     </div>
 
-    <script>
-        var Target = document.getElementById("clock");
-        var Target_apm = document.getElementById("apm");
-        function clock() {
-            var time = new Date();
-            var years = time.getFullYear();
-            var month = time.getMonth();
-            var date = time.getDate();
-            var day = time.getDay();
-            var week = ['일', '월', '화', '수', '목', '금', '토'];
 
-            var hours = time.getHours();
-            var minutes = time.getMinutes();
-            var seconds = time.getSeconds();
-
-            Target.innerText =
-                `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-
-            Target_apm.innerText = `${years}.${month + 1}.${date}(${week[day]}) `;
-
-        }
-        clock();
-        setInterval(clock, 1000); // 1초마다 실행
-    </script>
-
-   
-
-
-    <div class="smoke">
-        <div class="container" id="fh5co-pricing">
-            <div class="row">
-                <div class="col-sm-4 animate-box" data-animate-effect="fadeInLeft">
-                    <div class="price-box">
-                        <h3 class="sche"><b>3호선 수영행</b></h3>
-                        <h3 class="sche5" id="countdown_3minam_up"></h3>
-                        <div class="gr-line"></div>
-                        <div>
-                            <h3 id="minam_up" class="sche"></h3>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="price-box-dark animate-box">
-                        <h3 class="sche2"><b>4호선 안평행</b></h3>
-                        <h3 class="sche4" id="countdown_4minam"></h3>
-                        <div class="gr-line"></div>
-                        <div>
-                            <h3 id="4minam_dn" class="sche2"></h3>
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="price-box animate-box" data-animate-effect="fadeInRight">
-                        <h3 class="sche"><b>3호선 대저행</b></h3>
-                        <h3 class="sche5" id="countdown_3minam_dn"></h3>
-                        <div class="gr-line"></div>
-                        <div id="minam_dn">
-                         
-                            
-                        </div>
-
-
-
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="item item7">
+            <p id="303_up" class="sche1"></p>
         </div>
-    </div>
-    <!--
-<div class="darker">
-    <div class="container" id="fh5co-legal">
-        <div class="row">
-            <div class="col-sm-8 text-white mtext-center">
-               
-            </div>
-           
+        <div class="item item8">
+            <div class="sche1">303 배산</div>
+            <div class='gr-line'></div>
+            <div id="count_303_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_303_dn" class="sche1"></div>
         </div>
+        <div class="item item9">
+            <h3 id="303_dn" class="sche1"></h3>
+        </div>
+        </h3>
     </div>
-</div>
--->
 
-    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>-->
-    <script src="./js/jquery.min.js"></script>
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
-    <script src="./js/bootstrap.min.js"></script>
-    <!--<script src="https://use.fontawesome.com/8e45396e2e.js"></script>-->
-    <script src="./js/fontawesome.js"></script>
-    <script src="./js/jquery.waypoints.min.js"></script>
-    <script src="./js/animate.js"></script>
+
+    <div class="container">
+        <div class="item item7">
+            <p id="304_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">304 물만골</div>
+            <div class='gr-line'></div>
+            <div id="count_304_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_304_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="304_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="305_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">305 연산</div>
+            <div class='gr-line'></div>
+            <div id="count_305_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_305_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="305_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="306_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">306 거제</div>
+            <div class='gr-line'></div>
+            <div id="count_306_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_306_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="306_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="307_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">307 종합운동장</div>
+            <div class='gr-line'></div>
+            <div id="count_307_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_307_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="307_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="308_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">308 사직</div>
+            <div class='gr-line'></div>
+            <div id="count_308_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_308_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="308_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="309_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">309 미남</div>
+            <div class='gr-line'></div>
+            <div id="count_309_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_309_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="309_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+    <div class="container">
+        <div class="item item7">
+            <p id="310_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">310 만덕</div>
+            <div class='gr-line'></div>
+            <div id="count_310_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_310_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="310_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+    <div class="container">
+        <div class="item item7">
+            <p id="311_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">311 남산정</div>
+            <div class='gr-line'></div>
+            <div id="count_311_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_311_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="311_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="312_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">312 남산정</div>
+            <div class='gr-line'></div>
+            <div id="count_312_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_312_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="312_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="313_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">313 덕천</div>
+            <div class='gr-line'></div>
+            <div id="count_313_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_313_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="313_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="314_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">314 구포</div>
+            <div class='gr-line'></div>
+            <div id="count_314_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_314_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="314_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="315_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">315 강서구청</div>
+            <div class='gr-line'></div>
+            <div id="count_315_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_315_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="315_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="316_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">316 체육공원</div>
+            <div class='gr-line'></div>
+            <div id="count_316_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_316_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="316_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
+
+    <div class="container">
+        <div class="item item7">
+            <p id="317_up" class="sche1"></p>
+        </div>
+        <div class="item item8">
+            <div class="sche1">317 체육공원</div>
+            <div class='gr-line'></div>
+            <div id="count_317_up" class="sche1"></div>
+            <div class='gr-line'></div>
+            <div id="count_317_dn" class="sche1"></div>
+        </div>
+        <div class="item item9">
+            <h3 id="317_dn" class="sche1"></h3>
+        </div>
+        </h3>
+    </div>
+
     <script>
         setInterval(function () {
             location.reload();
         }, 60000);
 
     </script>
+
 
 </body>
 
