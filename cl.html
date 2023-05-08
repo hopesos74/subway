@@ -19,6 +19,18 @@
             margin: 5px 5px 5px 5px;
         }
 
+        .container1 {
+            background: beige;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            /*  flex-flow: row wrap;  */
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            margin: 0px 0px 0px 0px;
+        }
+
         .item {
             width: 300px;
             height: 75px;
@@ -32,7 +44,7 @@
             left: 0;
             right: 0;
             height: 25px;
-            margin: 5px 5px 5px 5px;
+            margin: 0px 0px 0px 0px;
             text-align: center;
             background: orange;
             font-family: 'GangwonEdu_OTFBoldA';
@@ -42,11 +54,11 @@
         }
 
         .blank {
-            margin-top: 35px;
+            margin-top: 10px;
         }
 
         .blank1 {
-            margin-top: 65px;
+            margin-top: 55px;
         }
 
         .header {
@@ -55,7 +67,7 @@
             left: 0;
             right: 0;
             height: 25px;
-            margin: 30px 5px 5px 5px;
+            margin: 25px 13px 0px 13px;
             text-align: center;
             font-family: 'GangwonEdu_OTFBoldA';
             color: black;
@@ -63,7 +75,12 @@
             text-align: center;
 
         }
-
+        .top1 {
+            width: 300px;
+            height: 25px;
+            margin: 0px 0px 0px 0px;
+            text-align: center;
+        }
         .top {
             width: 300px;
             height: 25px;
@@ -3721,7 +3738,7 @@
         <span id="clock" class="time">apm</span>
     </div>
 
-    <div class="blank"> </div>
+   
     <script>
         var Target = document.getElementById("clock");
         var Target_apm = document.getElementById("apm");
@@ -3748,7 +3765,7 @@
     </script>
 
     <div class="header">
-        <div class="container">
+        <div class="container1">
           <div class="top item7">
             <p class="sche1">수영행</p>
           </div>
@@ -3760,9 +3777,8 @@
           </div>
         </div>
     </div>
-
-    <div class="blank1"> </div>
-
+<div class="blank1"></div>
+   
     <div class="container">
         <div class="item item7">
             <p id="301_up" class="sche1"></p>
@@ -4077,3 +4093,4 @@
 </body>
 
 </html>
+
