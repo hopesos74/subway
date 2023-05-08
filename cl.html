@@ -75,12 +75,14 @@
             text-align: center;
 
         }
+
         .top1 {
             width: 300px;
             height: 25px;
             margin: 0px 0px 0px 0px;
             text-align: center;
         }
+
         .top {
             width: 300px;
             height: 25px;
@@ -351,47 +353,47 @@
                             $("#301_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
+                        // 결과 출력
 
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_301_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_301_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_301_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_301_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
                 if (cur_time > 235900 && cur_time <= 245959) {
                     $("#301_dn").append("열차운행 종료");
@@ -421,50 +423,50 @@
 
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    //  const countdownElement = document.getElementById("count_301_dn");
-                    //  countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                        // 결과 출력
+                        //  const countdownElement = document.getElementById("count_301_dn");
+                        //  countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
 
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_301_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_301_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_301_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_301_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
 
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
             });
 
 
@@ -566,46 +568,46 @@
                             $("#302_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_302_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_302_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_302_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_302_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
                 if (cur_time > 240100 && cur_time <= 245959) {
                     $("#302_dn").append("열차운행 종료");
@@ -629,45 +631,45 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_302_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_302_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_302_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_302_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
             });
 
 
@@ -768,45 +770,45 @@
                             $("#303_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_303_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_303_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_303_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_303_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
 
 
@@ -833,44 +835,44 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_303_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_303_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_303_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_303_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
             });
 
@@ -971,45 +973,45 @@
                             $("#304_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_304_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_304_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_304_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_304_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
 
 
@@ -1035,45 +1037,45 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_304_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_304_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_304_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_304_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
 
             });
@@ -1175,46 +1177,46 @@
                             $("#305_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_305_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_305_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_305_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_305_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
 
                 if (cur_time > 240700 && cur_time <= 245959) {
@@ -1239,44 +1241,44 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_305_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_305_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_305_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_305_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
 
             });
@@ -1379,46 +1381,46 @@
                             $("#306_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_306_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_306_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_306_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_306_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
                 if (cur_time > 241120 && cur_time <= 245959) {
                     $("#306_dn").append("열차운행 종료");
@@ -1442,44 +1444,44 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_306_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_306_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_306_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_306_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
             });
 
@@ -1583,45 +1585,45 @@
                             $("#307_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_307_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_307_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_307_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_307_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
-                    // 타겟 날짜가 지나면 종료
+                        // 타겟 날짜가 지나면 종료
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
                 if (cur_time > 241300 && cur_time <= 245959) {
                     $("#307_dn").append("열차운행 종료");
@@ -1645,45 +1647,45 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_307_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_307_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_307_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_307_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
             });
 
 
@@ -1787,46 +1789,46 @@
                             $("#308_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_308_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_308_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_308_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_308_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
                 if (cur_time > 241450 && cur_time <= 245959) {
                     $("#308_dn").append("열차운행 종료");
@@ -1850,44 +1852,44 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_308_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_308_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_308_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_308_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
 
             });
@@ -1991,45 +1993,45 @@
                             $("#309_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_309_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_309_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_309_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_309_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
 
                 if (cur_time > 241655 && cur_time <= 245959) {
@@ -2054,44 +2056,44 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_309_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_309_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_309_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_309_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
             });
 
@@ -2192,45 +2194,45 @@
                             $("#310_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_310_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_310_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_310_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_310_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
 
 
@@ -2256,45 +2258,45 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_310_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_310_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_310_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_310_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
             });
 
 
@@ -2395,46 +2397,46 @@
                             $("#311_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_311_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_311_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_311_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_311_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
 
 
@@ -2460,44 +2462,44 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_311_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_311_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_311_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_311_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
             });
 
@@ -2601,46 +2603,46 @@
                             $("#312_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_312_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_312_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_312_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_312_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
 
                 if (cur_time > 242520 && cur_time <= 245959) {
                     $("#312_dn").append("열차운행 종료");
@@ -2664,45 +2666,45 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_312_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_312_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_312_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_312_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
             });
 
 
@@ -2806,45 +2808,45 @@
                             $("#313_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_313_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_313_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_313_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_313_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
                 if (cur_time > 242650 && cur_time <= 245959) {
                     $("#313_dn").append("열차운행 종료");
@@ -2868,44 +2870,44 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_313_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_313_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_313_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_313_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
             });
 
@@ -3010,45 +3012,45 @@
                             $("#314_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_314_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_314_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_314_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_314_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
                 if (cur_time > 243210 && cur_time <= 245959) {
                     $("#314_dn").append("열차운행 종료");
@@ -3072,45 +3074,45 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_314_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_314_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_314_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_314_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
             });
 
 
@@ -3214,45 +3216,45 @@
                             $("#315_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_315_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_315_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_315_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_315_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
                 if (cur_time > 243455 && cur_time <= 245959) {
                     $("#315_dn").append("열차운행 종료");
@@ -3276,44 +3278,44 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_315_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_315_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_315_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_315_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
             });
 
@@ -3417,45 +3419,45 @@
                             $("#316_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_316_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_316_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_316_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_316_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
 
                 if (cur_time > 243645 && cur_time <= 245959) {
@@ -3480,45 +3482,45 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_316_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_316_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_316_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_316_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
             });
 
 
@@ -3622,45 +3624,45 @@
                             $("#317_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
                         }
                     }
-                
 
 
 
-                const ho_up = arr_up[0][1].substr(0, 2);
-                const mi_up = arr_up[0][1].substr(2, 2);
-                const se_up = arr_up[0][1].substr(4, 2);
+
+                    const ho_up = arr_up[0][1].substr(0, 2);
+                    const mi_up = arr_up[0][1].substr(2, 2);
+                    const se_up = arr_up[0][1].substr(4, 2);
 
 
-                const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+                    const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_up - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_up - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_317_up");
-                        countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "수영행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_317_up");
+                            countdownElement.innerHTML = `<span style='color:red'>수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "수영행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_317_up");
+                            countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_317_up");
-                        countdownElement.innerHTML = `수영행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
-            }
+                    }, 1000);
+                }
 
                 if (cur_time > 243830 && cur_time <= 245959) {
                     $("#317_dn").append("열차운행 종료");
@@ -3684,45 +3686,45 @@
                         }
                     }
 
-                
 
 
-                const ho_dn = arr_dn[0][1].substr(0, 2);
-                const mi_dn = arr_dn[0][1].substr(2, 2);
-                const se_dn = arr_dn[0][1].substr(4, 2);
+
+                    const ho_dn = arr_dn[0][1].substr(0, 2);
+                    const mi_dn = arr_dn[0][1].substr(2, 2);
+                    const se_dn = arr_dn[0][1].substr(4, 2);
 
 
-                const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+                    const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
 
-                // 1초마다 남은 시간 업데이트
-                setInterval(function () {
-                    // 현재 날짜와의 차이 계산
-                    const now = new Date().getTime();
-                    const timeLeft = targetDate_dn - now;
+                    // 1초마다 남은 시간 업데이트
+                    setInterval(function () {
+                        // 현재 날짜와의 차이 계산
+                        const now = new Date().getTime();
+                        const timeLeft = targetDate_dn - now;
 
-                    // 남은 시간 계산
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        // 남은 시간 계산
+                        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    // 결과 출력
-                    if (hours==0 && minutes < 1) {
-                        const countdownElement = document.getElementById("count_317_dn");
-                        countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
-                        // 타겟 날짜가 지나면 종료
-                        if (timeLeft < 0) {
-                            clearInterval();
-                            countdownElement.innerHTML = "대저행 열차 출발";
+                        // 결과 출력
+                        if (hours == 0 && minutes < 1) {
+                            const countdownElement = document.getElementById("count_317_dn");
+                            countdownElement.innerHTML = `<span style='color:red'>대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                            // 타겟 날짜가 지나면 종료
+                            if (timeLeft < 0) {
+                                clearInterval();
+                                countdownElement.innerHTML = "대저행 열차 출발";
+                            }
+                        } else {
+                            const countdownElement = document.getElementById("count_317_dn");
+                            countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                         }
-                    } else {
-                        const countdownElement = document.getElementById("count_317_dn");
-                        countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    }
 
-                }, 1000);
+                    }, 1000);
 
-            }
+                }
             });
 
 
@@ -3738,7 +3740,7 @@
         <span id="clock" class="time">apm</span>
     </div>
 
-   
+
     <script>
         var Target = document.getElementById("clock");
         var Target_apm = document.getElementById("apm");
@@ -3766,19 +3768,19 @@
 
     <div class="header">
         <div class="container1">
-          <div class="top item7">
-            <p class="sche1">수영행</p>
-          </div>
-          <div class="top item8">
-            <p class="sche1">역사명</p>
-          </div>
-          <div class="top item9">
-            <p class="sche1">대저행</p>
-          </div>
+            <div class="top item7">
+                <p class="sche1">수영행</p>
+            </div>
+            <div class="top item8">
+                <p class="sche1">역사명</p>
+            </div>
+            <div class="top item9">
+                <p class="sche1">대저행</p>
+            </div>
         </div>
     </div>
-<div class="blank1"></div>
-   
+    <div class="blank1"></div>
+
     <div class="container">
         <div class="item item7">
             <p id="301_up" class="sche1"></p>
@@ -4086,6 +4088,13 @@
         setInterval(function () {
             location.reload();
         }, 60000);
+
+        window.onload = function () {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        }
 
     </script>
 
