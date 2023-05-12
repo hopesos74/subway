@@ -240,7 +240,7 @@
 
         }
 
-
+/*
         var h1 = today.getHours();
         var m1 = today.getMinutes();
         var s1 = today.getSeconds();
@@ -253,9 +253,11 @@
                 day_cd = 8
             }
         }
-
-
-        $.ajax({
+*/
+ // console.log(t1);
+  console.log(day_cd);
+ 
+  $.ajax({
             method: "GET",
             url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=3&stinCd=301"
         })
