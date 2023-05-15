@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             align-content: center;
-            margin: 5px 5px 5px 5px;
+            margin: 0px 1px 1px 0px;
         }
 
         .container1 {
@@ -67,7 +67,7 @@
             left: 0;
             right: 0;
             height: 25px;
-            margin: 25px 13px 0px 13px;
+            margin: 25px 8px 0px 8px;
             text-align: center;
             font-family: 'GangwonEdu_OTFBoldA';
             color: black;
@@ -86,7 +86,7 @@
         .top {
             width: 300px;
             height: 25px;
-            margin: 1px 1px 1px 1px;
+            margin: 0px 0px 0px 0px;
             text-align: center;
         }
 
@@ -386,7 +386,7 @@
 
                         $("#" + stincd + "_up").append("열차운행 종료<br>");
                         $("#" + stincd + "_up").append("<div class='gr-line'></div>");
-                        $("#count_" + stincd + "_up").append("사 상 행  열차 종료");
+                        $("#count_" + stincd + "_up").append("사 상 행  열차종료");
 
                     } else {
 
@@ -431,7 +431,7 @@
                                 countdownElement.innerHTML = `<span style='color:red'>사 상 행  ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "사 상 행 열차 출발";
+                                    countdownElement.innerHTML = "사 상 행 열차출발";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + stincd + "_up");
@@ -446,7 +446,7 @@
                     if (cur_time > arr_24station[last_dn][1] && cur_time <= 245959) {
                         $("#" + stincd + "_dn").append("열차운행 종료");
                         $("#" + stincd + "_dn").append("<div class='gr-line'></div>");
-                        $("#count_" + stincd + "_dn").append("가야대행 열차 종료");
+                        $("#count_" + stincd + "_dn").append("가야대행 열차종료");
                     } else {
                         var length_dn = arr_dn.length;
 
@@ -494,7 +494,7 @@
                                 countdownElement.innerHTML = `<span style='color:red'>가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "가야행 열차 출발";
+                                    countdownElement.innerHTML = "가야대행 열차출발";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + stincd + "_dn");
