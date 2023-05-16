@@ -457,7 +457,7 @@
                     if (cur_time > arr_24station[last_dn][1] && cur_time <= 245959) {
                         $("#" + stincd + "_dn").append("열차운행 종료");
                         $("#" + stincd + "_dn").append("<div class='gr-line'></div>");
-                        $("#count_" + stincd + "_dn").append("가야대행 열차종료");
+                        $("#count_" + stincd + "_dn").append("가야대 열차종료");
                     } else {
                         var length_dn = arr_dn.length;
 
@@ -505,11 +505,11 @@
                                 countdownElement.innerHTML = `<span style='color:red'>가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "가야대행 열차출발";
+                                    countdownElement.innerHTML = "가야대 열차출발";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + stincd + "_dn");
-                                countdownElement.innerHTML = `가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                                countdownElement.innerHTML = `가야대 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                             }
 
 
