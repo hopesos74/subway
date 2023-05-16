@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1호선도착시간</title>
+    <title>2호선도착시간</title>
     <style>
         .container {
             background: beige;
@@ -169,6 +169,8 @@
         }
 
 
+
+
         .gr-line {
             border-bottom: 1px solid #24b540;
             margin: 1px;
@@ -178,6 +180,9 @@
             color: inherit;
             text-decoration: none;
         }
+
+
+
 
 
         @font-face {
@@ -361,7 +366,7 @@
 
                         $("#" + stincd + "_up").append("열차운행 종료<br>");
                         $("#" + stincd + "_up").append("<div class='gr-line'></div>");
-                        $("#count_" + stincd + "_up").append("다대포행 열차 종료");
+                        $("#count_" + stincd + "_up").append("장산행 열차 종료");
                     } else {
 
                         var length_up = arr_up.length;
@@ -402,14 +407,14 @@
 
                             if (hours < 1 && minutes < 1) {
                                 const countdownElement = document.getElementById("count_" + stincd + "_up");
-                                countdownElement.innerHTML = `<span style='color:red'>다대포행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                countdownElement.innerHTML = `<span style='color:red'>장산행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "다대포행 열차 출발";
+                                    countdownElement.innerHTML = "장산행 열차 출발";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + stincd + "_up");
-                                countdownElement.innerHTML = `다대포행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                                countdownElement.innerHTML = `장산행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                             }
                             // 타겟 날짜가 지나면 종료
 
@@ -420,7 +425,7 @@
                     if (cur_time > arr_dn_24station[last_dn][1] && cur_time <= 245959) {
                         $("#" + stincd + "_dn").append("열차운행 종료");
                         $("#" + stincd + "_dn").append("<div class='gr-line'></div>");
-                        $("#count_" + stincd + "_dn").append("노포행 열차 종료");
+                        $("#count_" + stincd + "_dn").append("양산행 열차 종료");
                     } else {
                         var length_dn = arr_dn.length;
 
@@ -473,14 +478,14 @@
 
                             if (hours < 1 && minutes < 1) {
                                 const countdownElement = document.getElementById("count_" + stincd + "_dn");
-                                countdownElement.innerHTML = `<span style='color:red'>노포행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                countdownElement.innerHTML = `<span style='color:red'>양산행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "노포행 열차 출발";
+                                    countdownElement.innerHTML = "양산행 열차 출발";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + stincd + "_dn");
-                                countdownElement.innerHTML = `노포행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                                countdownElement.innerHTML = `양산행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                             }
 
 
@@ -491,39 +496,39 @@
                     }
                 });
         }
-        for (i = 195; i < 200; i++) {
-            var result = sta(day_cd, 1, i);
-        }
 
-        for (i = 100; i < 135; i++) {
-            var result = sta(day_cd, 1, i);
+
+
+        for (i = 201; i < 244; i++) {
+            var result = sta(day_cd, 2, i);
         }
 
 
     </script>
 
-<div class="header1">
-    <div class="container1">
-        <div class="line line1">
-            <p class="sche1"><a href="1line.html">1호선</a></p>
-        </div>
-        <div class="line line2">
-            <p class="sche2"><a href="2line.html">2호선</a></p>
-        </div>
-        <div class="line line3">
-            <p class="sche2"><a href="cl.html">3호선</a></p>
-        </div>
-        <div class="line line4">
-            <p class="sche2"><a href="4line.html">4호선</a></p>
-        </div>
-        <div class="line line_bg">
-            <p class="gimhae"><a href="bg.html">김해경전철</a></p>
+    <div class="header1">
+        <div class="container1">
+            <div class="line line1">
+                <p class="sche2"><a href="1line.html">1호선</a></p>
+            </div>
+            <div class="line line2">
+                <p class="sche1"><a href="2line.html">2호선</a></p>
+            </div>
+            <div class="line line3">
+                <p class="sche2"><a href="cl.html">3호선</a></p>
+            </div>
+            <div class="line line4">
+                <p class="sche2"><a href="4line.html">4호선</a></p>
+            </div>
+            <div class="line line_bg">
+                <p class="gimhae"><a href="bg.html">김해경전철</a></p>
+            </div>
         </div>
     </div>
-</div>
+
 
     <!--
-    <div class="clock">1호선 열차도착 시간
+    <div class="clock">2호선 열차도착 시간
         <span id="apm" class="time">clock</span>,
         <span id="clock" class="time">apm</span>
     </div>
@@ -552,60 +557,44 @@
         }
         clock();
         setInterval(clock, 1000); // 1초마다 실행
+
     </script>
-
-    -->
-
+-->
     <div class="header">
         <div class="container1">
             <div class="top item1">
-                <p class="sche1">다대포행</p>
+                <p class="sche1">장산행</p>
             </div>
-            <div class="top line1">
-                <p class="sche1">1호선</p>
+            <div class="top line2">
+                <p class="sche1">2호선</p>
             </div>
             <div class="top item3">
-                <p class="sche1">노포행</p>
+                <p class="sche1">양산행</p>
             </div>
         </div>
     </div>
-
     <div class="blank1"></div>
 
 
-
     <script>
-        one_station = new Array("95 다대포", "96 다대포항", "97 낫개", "98 신장림", "99 장림", "100 동매", "101 신평", "102 하단", "103 당리",
-            "104 사하", "105 괴정", "106 대티", "107 서대신", "108 동대신", "109 토성", "110 자갈치", "111 남포", "112 중앙", "113 부산역", "114 초량",
-            "115 부산진", "116 좌천", "117 범일", "118 범내골", "119 서면", "120 부전", "121 양정", "122 시청", "123 연산", "124 교대", "125 동래",
-            "126 명륜", "127 온천장", "128 부산대", "129 장전", "130 구서", "131 두실", "132 남산", "133 범어사", "134 노포");
+        one_station = new Array("201 장산", "202 중동", "203 해운대", "204 동백", "205 벡스코", "206 센텀시티", "207 민락", "208 수영", "209 광안", "210 금련산",
+            "211 남천", "212 경성대부경대", "213 대연", "214 못골", "215 지게골", "216 문현", "217 국제금융센터", "218 전포", "219 서면", "220 부암", "221 가야", "222 동의대",
+            "223 개금", "224 냉정", "225 주례", "226 감전", "227 사상", "228 덕포", "229 모덕", "230 모라", "231 구남", "232 구명", "233 덕천", "234 수정", "235 화명",
+            "236 율리", "237 동원", "238 금곡", "239 호포", "240 증산", "241 부산양산대캠", "242 남양산", "243 양산");
 
-        for (i = 0; i < 5; i++) {
+
+        for (i = 0; i < one_station.length; i++) {
             document.write("<div class='container'>");
             document.write("<div class='item item1'>");
-            document.write("<p id='" + (i + 195) + "_up' class='sche1'></p> </div>");
+            document.write("<p id='" + (i + 201) + "_up' class='sche1'></p> </div>");
             document.write("<div class='item item2'>");
             document.write("<div class='sche1'>" + one_station[i] + "</div>");
             document.write("<div class='gr-line'></div>");
-            document.write("<div id='count_" + (i + 195) + "_up' class='sche1'></div>");
+            document.write("<div id='count_" + (i + 201) + "_up' class='sche1'></div>");
             document.write("<div class='gr-line'></div>");
-            document.write("<div id='count_" + (i + 195) + "_dn' class='sche1'></div></div>");
+            document.write("<div id='count_" + (i + 201) + "_dn' class='sche1'></div></div>");
             document.write("<div class='item item3'>");
-            document.write("<p id='" + (i + 195) + "_dn' class='sche1'></p> </div></div>");
-        }
-
-        for (i = 5; i < one_station.length; i++) {
-            document.write("<div class='container'>");
-            document.write("<div class='item item1'>");
-            document.write("<p id='" + (i + 95) + "_up' class='sche1'></p> </div>");
-            document.write("<div class='item item2'>");
-            document.write("<div class='sche1'>" + one_station[i] + "</div>");
-            document.write("<div class='gr-line'></div>");
-            document.write("<div id='count_" + (i + 95) + "_up' class='sche1'></div>");
-            document.write("<div class='gr-line'></div>");
-            document.write("<div id='count_" + (i + 95) + "_dn' class='sche1'></div></div>");
-            document.write("<div class='item item3'>");
-            document.write("<p id='" + (i + 95) + "_dn' class='sche1'></p> </div></div>");
+            document.write("<p id='" + (i + 201) + "_dn' class='sche1'></p> </div></div>");
         }
 
     </script>

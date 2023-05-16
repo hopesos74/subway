@@ -44,7 +44,7 @@
             left: 0;
             right: 0;
             height: 25px;
-            margin: 0px 0px 0px 0px;
+            margin: 25px 0px 0px 0px;
             text-align: center;
             background: orange;
             font-family: 'GangwonEdu_OTFBoldA';
@@ -53,12 +53,9 @@
             text-align: center;
         }
 
-        .blank {
-            margin-top: 10px;
-        }
 
         .blank1 {
-            margin-top: 55px;
+            margin-top: 58px;
         }
 
         .header {
@@ -66,8 +63,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 25px;
-            margin: 25px 13px 0px 13px;
+            height: 30px;
+            margin: 27px 13px 0px 13px;
             text-align: center;
             font-family: 'GangwonEdu_OTFBoldA';
             color: black;
@@ -76,10 +73,17 @@
 
         }
 
-        .top1 {
-            width: 300px;
+        .header1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 25px;
-            margin: 0px 0px 0px 0px;
+            margin: 0px 13px 0px 13px;
+            text-align: center;
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: black;
+            font-size: 1.2em;
             text-align: center;
         }
 
@@ -90,43 +94,45 @@
             text-align: center;
         }
 
+
+        .line {
+            width: 300px;
+            height: 25px;
+            margin: 1px 1px 1px 1px;
+            text-align: center;
+        }
+
         .item1 {
-            background: #f6f3f3;
-
-        }
-
-        .item2 {
-            background: #f6f2f4;
-        }
-
-        .item3 {
-            background: #eff3f6;
-        }
-
-        .item4 {
-            background: #f6f2f2;
-
-        }
-
-        .item5 {
-            background: #f4edef;
-        }
-
-        .item6 {
-            background: #eef0f3;
-        }
-
-        .item7 {
             background: #f0eded;
 
         }
 
-        .item8 {
+        .item2 {
             background: #f2ecee;
         }
 
-        .item9 {
+        .item3 {
             background: #eef0f2;
+        }
+
+        .line1 {
+            background: #f26820;
+        }
+
+        .line2 {
+            background: #4db748;
+        }
+
+        .line3 {
+            background: #ce892a;
+        }
+
+        .line4 {
+            background: #3f6bb4;
+        }
+
+        .line_bg {
+            background: #8653a2;
         }
 
         .sche {
@@ -148,32 +154,29 @@
 
         .sche2 {
             font-family: 'GangwonEdu_OTFBoldA';
-            color: red;
+            color: white;
             font-size: 1em;
             margin-top: 3px;
             margin-bottom: 3px;
         }
+
+        .gimhae {
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: white;
+            font-size: 0.85em;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
 
         .gr-line {
             border-bottom: 1px solid #24b540;
             margin: 1px;
         }
 
-
-
-
-        @font-face {
-            font-family: 'KOTRA_GOTHIC';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_GOTHIC.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'KorailRoundGothicBold';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
 
@@ -493,6 +496,29 @@
     </script>
 
 
+<div class="header1">
+    <div class="container1">
+        <div class="line line1">
+            <p class="sche2"><a href="1line.html">1호선</a></p>
+        </div>
+        <div class="line line2">
+            <p class="sche2"><a href="2line.html">2호선</a></p>
+        </div>
+        <div class="line line3">
+            <p class="sche2"><a href="cl.html">3호선</a></p>
+        </div>
+        <div class="line line4">
+            <p class="sche1"><a href="4line.html">4호선</a></p>
+        </div>
+        <div class="line line_bg">
+            <p class="gimhae"><a href="bg.html">김해경전철</a></p>
+        </div>
+    </div>
+</div>
+
+<!--
+
+
 
     <div class="clock">4호선 열차도착 시간
         <span id="apm" class="time">clock</span>,
@@ -525,268 +551,44 @@
         setInterval(clock, 1000); // 1초마다 실행
     </script>
 
+
+-->
+
     <div class="header">
         <div class="container1">
-            <div class="top item7">
+            <div class="top item1">
                 <p class="sche1">미남행</p>
             </div>
-            <div class="top item8">
-                <p class="sche1">역사명</p>
+            <div class="top line4">
+                <p class="sche1">4호선</p>
             </div>
-            <div class="top item9">
+            <div class="top item3">
                 <p class="sche1">안평행</p>
             </div>
         </div>
     </div>
     <div class="blank1"></div>
 
-    <div class="container">
-        <div class="item item7">
-            <p id="401_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">401 미남</div>
-            <div class='gr-line'></div>
-            <div id="count_401_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_401_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="401_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-    <div class="container">
-        <div class="item item7">
-            <p id="402_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">402 동래</div>
-            <div class='gr-line'></div>
-            <div id="count_402_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_402_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="402_dn" class="sche1"></p>
-        </div>
-
-    </div>
+    <script>
+        one_station = new Array("401 미남", "402 동래", "403 수안", "404 낙민", "405 충렬사", "406 명장", "407 서동", "408 금사", "409 반여농산물", "410 석대",
+            "411 영산대", "412 윗반송", "413 고촌", "414 안평");
 
 
-    <div class="container">
-        <div class="item item7">
-            <p id="403_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">403 수안</div>
-            <div class='gr-line'></div>
-            <div id="count_403_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_403_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="403_dn" class="sche1"></p>
-        </div>
+        for (i = 0; i < one_station.length; i++) {
+            document.write("<div class='container'>");
+            document.write("<div class='item item1'>");
+            document.write("<p id='" + (i + 401) + "_up' class='sche1'></p> </div>");
+            document.write("<div class='item item2'>");
+            document.write("<div class='sche1'>" + one_station[i] + "</div>");
+            document.write("<div class='gr-line'></div>");
+            document.write("<div id='count_" + (i + 401) + "_up' class='sche1'></div>");
+            document.write("<div class='gr-line'></div>");
+            document.write("<div id='count_" + (i + 401) + "_dn' class='sche1'></div></div>");
+            document.write("<div class='item item3'>");
+            document.write("<p id='" + (i + 401) + "_dn' class='sche1'></p> </div></div>");
+        }
 
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="404_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">404 낙민</div>
-            <div class='gr-line'></div>
-            <div id="count_404_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_404_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="404_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="405_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">405 충렬사</div>
-            <div class='gr-line'></div>
-            <div id="count_405_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_405_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="405_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="406_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">406 명장</div>
-            <div class='gr-line'></div>
-            <div id="count_406_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_406_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="406_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="407_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">407 서동</div>
-            <div class='gr-line'></div>
-            <div id="count_407_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_407_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="407_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="408_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">408 금사</div>
-            <div class='gr-line'></div>
-            <div id="count_408_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_408_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="408_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="409_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">409 반여농산물</div>
-            <div class='gr-line'></div>
-            <div id="count_409_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_409_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="409_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-    <div class="container">
-        <div class="item item7">
-            <p id="410_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">410 석대</div>
-            <div class='gr-line'></div>
-            <div id="count_410_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_410_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="410_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-    <div class="container">
-        <div class="item item7">
-            <p id="411_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">411 영산대</div>
-            <div class='gr-line'></div>
-            <div id="count_411_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_411_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="411_dn" class="sche1"></p>
-        </div>
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="412_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">412 동부산대학</div>
-            <div class='gr-line'></div>
-            <div id="count_412_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_412_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="412_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="413_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">413 고촌</div>
-            <div class='gr-line'></div>
-            <div id="count_413_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_413_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="413_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
-
-    <div class="container">
-        <div class="item item7">
-            <p id="414_up" class="sche1"></p>
-        </div>
-        <div class="item item8">
-            <div class="sche1">414 안평</div>
-            <div class='gr-line'></div>
-            <div id="count_414_up" class="sche1"></div>
-            <div class='gr-line'></div>
-            <div id="count_414_dn" class="sche1"></div>
-        </div>
-        <div class="item item9">
-            <p id="414_dn" class="sche1"></p>
-        </div>
-
-    </div>
-
+    </script>
 
 
 
