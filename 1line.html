@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1호선도착시간</title>
+    <style>
+        .container {
+            background: beige;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            /*  flex-flow: row wrap;  */
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            margin: 5px 5px 5px 5px;
+        }
+
+        .container1 {
+            background: beige;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            /*  flex-flow: row wrap;  */
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            margin: 0px 0px 0px 0px;
+        }
+
+        .item {
+            width: 300px;
+            height: 75px;
+            margin: 1px 1px 1px 1px;
+            text-align: center;
+        }
+
+        .clock {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 25px;
+            margin: 0px 0px 0px 0px;
+            text-align: center;
+            background: orange;
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: black;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .blank {
+            margin-top: 10px;
+        }
+
+        .blank1 {
+            margin-top: 55px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 25px;
+            margin: 25px 13px 0px 13px;
+            text-align: center;
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: black;
+            font-size: 1.2em;
+            text-align: center;
+
+        }
+
+        .top1 {
+            width: 300px;
+            height: 25px;
+            margin: 0px 0px 0px 0px;
+            text-align: center;
+        }
+
+        .top {
+            width: 300px;
+            height: 25px;
+            margin: 1px 1px 1px 1px;
+            text-align: center;
+        }
+
+        .item1 {
+            background: #f6f3f3;
+
+        }
+
+        .item2 {
+            background: #f6f2f4;
+        }
+
+        .item3 {
+            background: #eff3f6;
+        }
+
+        .item4 {
+            background: #f6f2f2;
+
+        }
+
+        .item5 {
+            background: #f4edef;
+        }
+
+        .item6 {
+            background: #eef0f3;
+        }
+
+        .item7 {
+            background: #f0eded;
+
+        }
+
+        .item8 {
+            background: #f2ecee;
+        }
+
+        .item9 {
+            background: #eef0f2;
+        }
+
+        .sche {
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: black;
+            font-size: 2.5em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sche1 {
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: black;
+            font-size: 1em;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .sche2 {
+            font-family: 'GangwonEdu_OTFBoldA';
+            color: red;
+            font-size: 1em;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .gr-line {
+            border-bottom: 1px solid #24b540;
+            margin: 1px;
+        }
+
+
+
+
+        @font-face {
+            font-family: 'KOTRA_GOTHIC';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_GOTHIC.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'KorailRoundGothicBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+
+        @font-face {
+            font-family: 'GangwonEdu_OTFBoldA';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+
+
+    <script>
+        // 오늘 날짜를 가져옵니다.
+        const today = new Date();
+
+        // 평일, 토요일, 일요일, 공휴일 여부를 판단합니다.
+        const isWeekday = today.getDay() !== 0 && today.getDay() !== 6; // 일요일이나 토요일이 아닌 경우
+        const isSaturday = today.getDay() === 6; // 토요일인 경우
+        const isSunday = today.getDay() === 0; // 일요일인 경우
+
+        // 공휴일 목록을 작성합니다.
+        const holidays = [
+
+            new Date('2023-05-05'), // 어린이날
+            new Date('2023-05-27'), // 석가탄신일
+            new Date('2023-05-29'), // 대체공휴일
+            new Date('2023-06-06'), // 현충일
+            new Date('2023-08-15'), // 광복절
+            new Date('2023-09-28'), // 추석
+            new Date('2023-09-29'), // 추석
+            new Date('2023-09-30'), // 추석
+            new Date('2023-10-03'), // 개천절
+            new Date('2023-10-09'), // 한글날
+            new Date('2023-12-25') // 성탄절
+        ];
+
+        // 오늘이 공휴일인지 확인합니다.
+        let isHoliday = false;
+        holidays.forEach(holiday => {
+            if (holiday.getFullYear() === today.getFullYear() &&
+                holiday.getMonth() === today.getMonth() &&
+                holiday.getDate() === today.getDate()) {
+                isHoliday = true;
+            }
+        });
+
+        // 결과를 출력합니다.
+        if (isHoliday) {
+            day_cd = 9;
+            day_han = "공휴일";
+
+        } else {
+            isWeekday ? day_cd = 8 : isSaturday ? day_cd = 7 : day_cd = 9;
+            isWeekday ? day_han = "평일" : isSaturday ? day_han = "토" : day_han = "일";
+
+        }
+
+        /*
+                var h1 = today.getHours();
+                var m1 = today.getMinutes();
+                var s1 = today.getSeconds();
+                var t1 = h1 + '' + m1 + '' + s1;
+        
+                if (t1 < 2040 && t1 > 0) {
+                    if (day_cd == 9) {
+                        day_cd = 7
+                    } else if (day_cd == 7) {
+                        day_cd = 8
+                    }
+                }
+        */
+        // console.log(t1);
+        console.log(day_cd);
+
+
+        function sta(day_cd, lncd, stincd) {
+
+
+
+            $.ajax({
+                method: "GET",
+                url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BS&dayCd=" + day_cd + "&lnCd=" + lncd + "&stinCd=" + stincd + ""
+            })
+                .done(function (p) {
+
+                    console.log(p);
+
+                    var time = new Date();
+                    var years = time.getFullYear();
+                    var month = time.getMonth();
+                    var date = time.getDate();
+                    var hours = time.getHours();
+
+                    if (hours < 10 && hours > 0) {
+                        hours = '0' + hours;
+                    } else if (hours == 0) {
+                        hours = '24';
+                    } else {
+                        hours = hours;
+                    }
+
+                    var minutes = time.getMinutes();
+                    var seconds = time.getSeconds();
+
+                    var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                    var arr_station = new Array();
+                    var arr_up = new Array();
+                    var arr_dn = new Array();
+
+                    for (i = 0; i < p.body.length; i++) {
+                        arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
+                    }
+
+                    //새로운 배열에 열차번호와 도착시간 저장
+                    /*
+                    const arr_24station = arr_station.map(row => {
+                        return row.map(str => {
+                            if (str === "000240") {
+                                return "240240";
+                            } else if (str === "001900") {
+                                return "241900";
+                            }
+                            else {
+                                return str;
+                            }
+                        });
+                    });  */
+
+
+                    const arr_24station = arr_station.map(row => {
+                        return row.map(str => {
+                            if (str.substring(0, 2) === "00") {
+                                return "24" + str.substring(2);
+                            } else {
+                                return str;
+                            }
+                        });
+                    });
+
+
+                    // 도착시간을 24시간제로 변경
+
+                    arr_24station.sort(function (a, b) {
+                        return a[1] - b[1];
+                    });
+                    // 시간순으로 정렬
+                    console.log(arr_24station);
+
+                    for (i = 0; i < arr_24station.length; i++) {
+
+                        new_3sub = cur_time - arr_24station[i][1];
+                        // 현재시간과 도착시간 차이
+
+                        if (new_3sub < 0) {
+                            if (arr_24station[i][0] % 2 == 0) {
+                                arr_dn.push(arr_24station[i]);
+                                //열차번호가 짝수이면 하선
+                            } else {
+                                arr_up.push(arr_24station[i]);
+                                //열차번호가 홀수이면 상선
+                            }
+                        }
+                    }
+                    //  $("#day_hann").append(day_han);
+                    var last_up = arr_24station.length - 2;
+                    var last_dn = arr_24station.length - 1;
+
+                    if (cur_time > arr_24station[last_up][1] && cur_time <= 245959) {
+
+                        $("#" + stincd + "_up").append("열차운행 종료<br>");
+                        $("#" + stincd + "_up").append("<div class='gr-line'></div>");
+                        $("#count_" + stincd + "_up").append("다대포행 열차 종료");
+                    } else {
+
+                        var length_up = arr_up.length;
+
+                        if (length_up > 3) {
+                            length_up = 3;
+                        }
+
+
+                        for (i = 0; i < length_up; i++) {
+                            var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                            if (i < 2) {
+                                $("#" + stincd + "_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                                $("#" + stincd + "_up").append("<div class='gr-line'></div>");
+                            } else {
+                                $("#" + stincd + "_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            }
+                        }
+
+                        const ho_up = arr_up[0][1].substr(0, 2);
+                        const mi_up = arr_up[0][1].substr(2, 2);
+                        const se_up = arr_up[0][1].substr(4, 2);
+                        const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                        // 1초마다 남은 시간 업데이트
+                        setInterval(function () {
+                            // 현재 날짜와의 차이 계산
+                            const now = new Date().getTime();
+                            const timeLeft = targetDate_up - now;
+
+                            // 남은 시간 계산
+                            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                            // 결과 출력
+
+                            if (hours < 1 && minutes < 1) {
+                                const countdownElement = document.getElementById("count_" + stincd + "_up");
+                                countdownElement.innerHTML = `<span style='color:red'>다대포행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                if (timeLeft < 0) {
+                                    clearInterval();
+                                    countdownElement.innerHTML = "다대포행 열차 출발";
+                                }
+                            } else {
+                                const countdownElement = document.getElementById("count_" + stincd + "_up");
+                                countdownElement.innerHTML = `다대포행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                            }
+                            // 타겟 날짜가 지나면 종료
+
+                        }, 1000);
+
+                    }
+
+                    if (cur_time > arr_24station[last_dn][1] && cur_time <= 245959) {
+                        $("#" + stincd + "_dn").append("열차운행 종료");
+                        $("#" + stincd + "_dn").append("<div class='gr-line'></div>");
+                        $("#count_" + stincd + "_dn").append("노포행 열차 종료");
+                    } else {
+                        var length_dn = arr_dn.length;
+
+                        if (length_dn > 3) {
+                            length_dn = 3;
+                        }
+
+                        for (i = 0; i < length_dn; i++) {
+
+                            var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+
+                            if (i < 2) {
+                                $("#" + stincd + "_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                                $("#" + stincd + "_dn").append("<div class='gr-line'></div>");
+                            } else {
+                                $("#" + stincd + "_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+
+
+                            }
+
+
+                        }
+
+
+
+
+                        const ho_dn = arr_dn[0][1].substr(0, 2);
+                        const mi_dn = arr_dn[0][1].substr(2, 2);
+                        const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                        const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                        // 1초마다 남은 시간 업데이트
+                        setInterval(function () {
+                            // 현재 날짜와의 차이 계산
+                            const now = new Date().getTime();
+                            const timeLeft = targetDate_dn - now;
+
+                            // 남은 시간 계산
+                            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                            // 결과 출력
+                            //  const countdownElement = document.getElementById("count_301_dn");
+                            //  countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                            if (hours < 1 && minutes < 1) {
+                                const countdownElement = document.getElementById("count_" + stincd + "_dn");
+                                countdownElement.innerHTML = `<span style='color:red'>노포행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                if (timeLeft < 0) {
+                                    clearInterval();
+                                    countdownElement.innerHTML = "노포행 열차 출발";
+                                }
+                            } else {
+                                const countdownElement = document.getElementById("count_" + stincd + "_dn");
+                                countdownElement.innerHTML = `노포행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                            }
+
+
+                            // 타겟 날짜가 지나면 종료
+
+                        }, 1000);
+
+                    }
+                });
+        }
+        for (i = 195; i < 200; i++) {
+            var result = sta(day_cd, 1, i);
+        }
+
+        for (i = 100; i < 135; i++) {
+            var result = sta(day_cd, 1, i);
+        }
+
+
+    </script>
+
+
+
+    <div class="clock">1호선 열차도착 시간
+        <span id="apm" class="time">clock</span>,
+        <span id="clock" class="time">apm</span>
+    </div>
+
+
+    <script>
+        var Target = document.getElementById("clock");
+        var Target_apm = document.getElementById("apm");
+        function clock() {
+            var time = new Date();
+            var years = time.getFullYear();
+            var month = time.getMonth();
+            var date = time.getDate();
+            var day = time.getDay();
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+
+            Target.innerText =
+                `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+            Target_apm.innerText = `${years}.${month + 1}.${date}(${week[day]})`;
+
+        }
+        clock();
+        setInterval(clock, 1000); // 1초마다 실행
+
+
+        document.write("<div class='header'>");
+        document.write("<div class='container1'>");
+        document.write("<div class='top item7'>");
+        document.write("<p class='sche1'>다대포행</p>");
+        document.write("</div>");
+        document.write("<div class='top item8'>");
+        document.write("<p class='sche1'>역사명</p></div>");
+        document.write("<div class='top item9'><p class='sche1'>노포행</p></div>");
+        document.write("</div></div>");
+        document.write("<div class='blank1'></div>");
+
+        one_station = new Array("95 다대포", "96 다대포항", "97 낫개", "98 신장림", "99 장림", "100 동매", "101 신평", "102 하단", "103 당리",
+            "104 사하", "105 괴정", "106 대티", "107 서대신", "108 동대신", "109 토성", "110 자갈치", "111 남포", "112 중앙", "113 부산역", "114 초량",
+            "115 부산진", "116 좌천", "117 범일", "118 범내골", "119 서면", "120 부전", "121 양정", "122 시청", "123 연산", "124 교대", "125 동래",
+            "126 명륜", "127 온천장", "128 부산대", "129 장전", "130 구서", "131 두실", "132 남산", "133 범어사", "134 노포");
+
+        for (i = 0; i < 5; i++) {
+            document.write("<div class='container'>");
+            document.write("<div class='item item7'>");
+            document.write("<p id='" + (i + 195) + "_up' class='sche1'></p> </div>");
+            document.write("<div class='item item8'>");
+            document.write("<div class='sche1'>" + one_station[i] + "</div>");
+            document.write("<div class='gr-line'></div>");
+            document.write("<div id='count_" + (i + 195) + "_up' class='sche1'></div>");
+            document.write("<div class='gr-line'></div>");
+            document.write("<div id='count_" + (i + 195) + "_dn' class='sche1'></div></div>");
+            document.write("<div class='item item9'>");
+            document.write("<p id='" + (i + 195) + "_dn' class='sche1'></p> </div></div>");
+        }
+
+        for (i = 5; i < one_station.length; i++) {
+            document.write("<div class='container'>");
+            document.write("<div class='item item7'>");
+            document.write("<p id='" + (i + 95) + "_up' class='sche1'></p> </div>");
+            document.write("<div class='item item8'>");
+            document.write("<div class='sche1'>" + one_station[i] + "</div>");
+            document.write("<div class='gr-line'></div>");
+            document.write("<div id='count_" + (i + 95) + "_up' class='sche1'></div>");
+            document.write("<div class='gr-line'></div>");
+            document.write("<div id='count_" + (i + 95) + "_dn' class='sche1'></div></div>");
+            document.write("<div class='item item9'>");
+            document.write("<p id='" + (i + 95) + "_dn' class='sche1'></p> </div></div>");
+        }
+
+    </script>
+
+    <script>
+        setInterval(function () {
+            location.reload();
+        }, 60000);
+
+        window.onload = function () {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        }
+
+    </script>
+
+
+</body>
+
+</html>
