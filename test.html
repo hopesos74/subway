@@ -14,26 +14,26 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
     <script>
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+       
         const subwayStations = [
 
-            { name: '수영역', latitude:35.167753, longitude: 129.11459 },
-            { name: '망미역', latitude: 35.171528,longitude: 129.108225 },
-            { name: '배산역', latitude: 35.173504,longitude: 129.095498 },
-            { name: '물만골역', latitude: 35.176808,longitude: 129.085748},
-            { name: '연산역', latitude: 35.186173,longitude: 129.081526 },
-            { name: '거제역', latitude: 35.188589,longitude: 129.073941 },
-            { name: '종합운동장역', latitude: 35.19125,longitude: 129.067504 },
-            { name: '사직역', latitude: 35.198998,longitude: 129.064996 },
-            { name: '미남역', latitude: 35.205503,longitude: 129.068061 },
-            { name: '만덕역', latitude: 35.213,longitude: 129.036527 },
-            { name: '남산정역', latitude: 35.21334,longitude: 129.023928 },
-            { name: '숙등역', latitude:35.21197,longitude: 129.012749 },
-            { name: '덕천역', latitude:35.210215,longitude: 129.005671 },
-            { name: '구포역', latitude: 35.206697,longitude: 128.996366 },
-            { name: '강서구청역', latitude: 35.211247,longitude: 128.981756 },
-            { name: '체육공원역', latitude: 35.212577,longitude: 128.969652 },
-            { name: '대저역', latitude:35.213386,longitude: 128.961049 },
+            { no: '301', name: '수영역', latitude:35.167753, longitude: 129.11459 },
+            { no: '302', name: '망미역', latitude: 35.171528,longitude: 129.108225 },
+            { no: '303', name: '배산역', latitude: 35.173504,longitude: 129.095498 },
+            { no: '304', name: '물만골역', latitude: 35.176808,longitude: 129.085748},
+            { no: '305', name: '연산역', latitude: 35.186173,longitude: 129.081526 },
+            { no: '306', name: '거제역', latitude: 35.188589,longitude: 129.073941 },
+            { no: '307', name: '종합운동장역', latitude: 35.19125,longitude: 129.067504 },
+            { no: '308', name: '사직역', latitude: 35.198998,longitude: 129.064996 },
+            { no: '309', name: '미남역', latitude: 35.205503,longitude: 129.068061 },
+            { no: '310', name: '만덕역', latitude: 35.213,longitude: 129.036527 },
+            { no: '311', name: '남산정역', latitude: 35.21334,longitude: 129.023928 },
+            { no: '312', name: '숙등역', latitude:35.21197,longitude: 129.012749 },
+            { no: '313', name: '덕천역', latitude:35.210215,longitude: 129.005671 },
+            { no: '314', name: '구포역', latitude: 35.206697,longitude: 128.996366 },
+            { no: '315', name: '강서구청역', latitude: 35.211247,longitude: 128.981756 },
+            { no: '316', name: '체육공원역', latitude: 35.212577,longitude: 128.969652 },
+            { no: '317', name: '대저역', latitude:35.213386,longitude: 128.961049 },
           
           
             // 지하철 역들의 위치 정보를 포함하는 배열
@@ -81,9 +81,9 @@
             const longitude = position.coords.longitude;
 
             const nearestStation = findNearestSubwayStation(latitude, longitude);
-
+           
             console.log('가장 가까운 지하철 역:', nearestStation.name);
-            $("#station").append(nearestStation.name);
+            $("#station").append(nearestStation.name+"&nbsp; 역사번호"+nearestStation.no);
 
 
 
@@ -93,7 +93,7 @@
             console.error('위치 정보를 가져오지 못했습니다:', error);
         }
 
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+       navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
     </script>
     <p id="station"></p>
