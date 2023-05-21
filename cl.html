@@ -44,6 +44,8 @@
 
         // 오늘이 공휴일인지 확인합니다.
         let isHoliday = false;
+
+
         holidays.forEach(holiday => {
             if (holiday.getFullYear() === today.getFullYear() &&
                 holiday.getMonth() === today.getMonth() &&
@@ -52,16 +54,23 @@
             }
         });
 
-        // 결과를 출력합니다.
+
         if (isHoliday) {
             day_cd = 9;
+            bg_day_cd = 9;
+            train_no = 4000;
             day_han = "공휴일";
 
         } else {
+            isWeekday ? bg_day_cd = 8 : isSaturday ? bg_day_cd = 9 : bg_day_cd = 9;
             isWeekday ? day_cd = 8 : isSaturday ? day_cd = 7 : day_cd = 9;
+            
+            isWeekday ? train_no = 2000 : isSaturday ? train_no = 4000 : train_no = 4000;
             isWeekday ? day_han = "평일" : isSaturday ? day_han = "토" : day_han = "일";
 
         }
+
+      
 
         /*
                 var h1 = today.getHours();
@@ -162,43 +171,44 @@
                 { no: '204', name: '동백(2호선)', latitude: 35.161484, longitude: 129.147897 },
                 { no: '205', name: '벡스코(2호선)', latitude: 35.168844, longitude: 129.138933 },
                 { no: '206', name: '센텀시티(2호선)', latitude: 35.168827, longitude: 129.131745 },
-                { no: '207', name: '민락(2호선)',latitude: 35.167228, longitude: 129.121909 },
-                { no: '208', name: '수영(2호선)',latitude: 35.165227, longitude: 129.114713 },
-                { no: '209', name: '광안(2호선)',latitude: 35.157916, longitude: 129.113168 },
-                { no: '210', name: '금련산(2호선)',latitude: 35.149771, longitude: 129.110961 },
-                { no: '211', name: '남천(2호선)',latitude: 35.142139, longitude: 129.107978 },
-                { no: '212', name: '경성대·부경대(2호선)',latitude: 35.137585, longitude: 129.100548 },
-                { no: '213', name: '대연(2호선)',latitude: 35.135153, longitude: 129.092161 },
-                { no: '214', name: '못골(2호선)',latitude: 35.134731, longitude: 129.084415 },
-                { no: '215', name: '지게골(2호선)',latitude: 35.135574, longitude: 129.074365 },
-                { no: '216', name: '문현(2호선)',latitude: 35.139151, longitude: 129.067399 },
-                { no: '217', name: '국제금융센터·부산은행(2호선)',latitude: 35.145817, longitude: 129.066755 },
-                { no: '218', name: '전포(2호선)',latitude: 35.153102, longitude: 129.065374 },
-                { no: '219', name: '서면(2호선)',latitude: 35.15774, longitude: 129.059084 },
-                { no: '220', name: '부암(2호선)',latitude: 35.157444, longitude: 129.050185 },
-                { no: '221', name: '가야(2호선)',latitude: 35.155883, longitude: 129.042817 },
-                { no: '222', name: '동의대(2호선)',latitude: 35.153986, longitude: 129.03275 },
-                { no: '223', name: '개금(2호선)',latitude: 35.153284, longitude: 129.020533 },
-                { no: '224', name: '냉정(2호선)',latitude: 35.151254, longitude: 129.012255 },
-                { no: '225', name: '주례(2호선)',latitude: 35.150508, longitude: 129.003077 },
-                { no: '226', name: '감전(2호선)',latitude: 35.155528, longitude: 128.991146 },
-                { no: '227', name: '사상(2호선)',latitude: 35.162361, longitude: 128.984621 },
-                { no: '228', name: '덕포(2호선)',latitude: 35.173754, longitude: 128.983955 },
-                { no: '229', name: '모덕(2호선)',latitude: 35.180366, longitude: 128.985621 },
-                { no: '230', name: '모라(2호선)',latitude: 35.189663, longitude: 128.988655 },
-                { no: '231', name: '구남(2호선)',latitude: 35.196804, longitude: 128.994928 },
-                { no: '232', name: '구명(2호선)',latitude: 35.20252, longitude: 128.999322 },
-                { no: '233', name: '덕천(2호선)',latitude: 35.210219, longitude: 129.005673 },
-                { no: '234', name: '수정(2호선)',latitude: 35.223356, longitude: 129.009198 },
-                { no: '235', name: '화명(2호선)',latitude: 35.236278, longitude: 129.013918 },
-                { no: '236', name: '율리(2호선)',latitude: 35.246714, longitude: 129.012918 },
-                { no: '237', name: '동원(2호선)',latitude: 35.258656, longitude: 129.012392 },
-                { no: '238', name: '금곡(2호선)',latitude: 35.267248, longitude: 129.0169054 },
-                { no: '239', name: '호포(2호선)',latitude: 35.280406, longitude: 129.017097 },
-                { no: '240', name: '증산(2호선)',latitude: 35.308302, longitude: 129.010246 },
-                { no: '241', name: '부산대양산캠퍼스(2호선)',latitude: 35.316955, longitude: 129.0139408 },
-                { no: '242', name: '남양산(2호선)',latitude: 35.325359, longitude: 129.019457 },
-                { no: '243', name: '양산(2호선)',latitude: 35.33872773, longitude: 129.026391 },
+                { no: '207', name: '민락(2호선)', latitude: 35.167228, longitude: 129.121909 },
+                { no: '208', name: '수영(2호선)', latitude: 35.165227, longitude: 129.114713 },
+                { no: '209', name: '광안(2호선)', latitude: 35.157916, longitude: 129.113168 },
+                { no: '210', name: '금련산(2호선)', latitude: 35.149771, longitude: 129.110961 },
+                { no: '211', name: '남천(2호선)', latitude: 35.142139, longitude: 129.107978 },
+                { no: '212', name: '경성부경대(2)', latitude: 35.137585, longitude: 129.100548 },
+                { no: '213', name: '대연(2호선)', latitude: 35.135153, longitude: 129.092161 },
+                { no: '214', name: '못골(2호선)', latitude: 35.134731, longitude: 129.084415 },
+                { no: '215', name: '지게골(2호선)', latitude: 35.135574, longitude: 129.074365 },
+                { no: '216', name: '문현(2호선)', latitude: 35.139151, longitude: 129.067399 },
+                { no: '217', name: '국제금융센터(2호선)', latitude: 35.145817, longitude: 129.066755 },
+                { no: '218', name: '전포(2호선)', latitude: 35.153102, longitude: 129.065374 },
+                { no: '219', name: '서면(2호선)', latitude: 35.15774, longitude: 129.059084 },
+                { no: '220', name: '부암(2호선)', latitude: 35.157444, longitude: 129.050185 },
+                { no: '221', name: '가야(2호선)', latitude: 35.155883, longitude: 129.042817 },
+                { no: '222', name: '동의대(2호선)', latitude: 35.153986, longitude: 129.03275 },
+                { no: '223', name: '개금(2호선)', latitude: 35.153284, longitude: 129.020533 },
+                { no: '224', name: '냉정(2호선)', latitude: 35.151254, longitude: 129.012255 },
+                { no: '225', name: '주례(2호선)', latitude: 35.150508, longitude: 129.003077 },
+                { no: '226', name: '감전(2호선)', latitude: 35.155528, longitude: 128.991146 },
+                { no: '227', name: '사상(2호선)', latitude: 35.162361, longitude: 128.984621 },
+                { no: '228', name: '덕포(2호선)', latitude: 35.173754, longitude: 128.983955 },
+                { no: '229', name: '모덕(2호선)', latitude: 35.180366, longitude: 128.985621 },
+                { no: '230', name: '모라(2호선)', latitude: 35.189663, longitude: 128.988655 },
+                { no: '231', name: '구남(2호선)', latitude: 35.196804, longitude: 128.994928 },
+                { no: '232', name: '구명(2호선)', latitude: 35.20252, longitude: 128.999322 },
+                { no: '233', name: '덕천(2호선)', latitude: 35.210219, longitude: 129.005673 },
+                { no: '234', name: '수정(2호선)', latitude: 35.223356, longitude: 129.009198 },
+                { no: '235', name: '화명(2호선)', latitude: 35.236278, longitude: 129.013918 },
+                { no: '236', name: '율리(2호선)', latitude: 35.246714, longitude: 129.012918 },
+                { no: '237', name: '동원(2호선)', latitude: 35.258656, longitude: 129.012392 },
+                { no: '238', name: '금곡(2호선)', latitude: 35.267248, longitude: 129.0169054 },
+                { no: '239', name: '호포(2호선)', latitude: 35.280406, longitude: 129.017097 },
+                { no: '240', name: '증산(2호선)', latitude: 35.308302, longitude: 129.010246 },
+                { no: '241', name: '부산대양산캠퍼스(2)', latitude: 35.316955, longitude: 129.0139408 },
+                { no: '242', name: '남양산(2호선)', latitude: 35.325359, longitude: 129.019457 },
+                { no: '243', name: '양산(2호선)', latitude: 35.33872773, longitude: 129.026391 },
+
                 { no: '301', name: '수영역(3호선)', latitude: 35.167753, longitude: 129.11459 },
                 { no: '302', name: '망미역(3호선)', latitude: 35.171528, longitude: 129.108225 },
                 { no: '303', name: '배산역(3호선)', latitude: 35.173504, longitude: 129.095498 },
@@ -217,19 +227,41 @@
                 { no: '316', name: '체육공원역(3호선)', latitude: 35.212577, longitude: 128.969652 },
                 { no: '317', name: '대저역(3호선)', latitude: 35.213386, longitude: 128.961049 },
                 { no: '401', name: '미남역(4호선)', latitude: 35.207116, longitude: 129.069172 },
-                { no: '402', name: '동래역(4호선)',latitude: 35.204834, longitude: 129.077082 },
-                { no: '403', name: '수안역(4호선)',latitude: 35.201828, longitude: 129.083806 },
-                { no: '404', name: '낙민역(4호선)',latitude: 35.200254, longitude: 129.090774 },
-                { no: '405', name: '충렬사역(4호선)',latitude: 35.199859, longitude: 129.097636 },
-                { no: '406', name: '명장역(4호선)',latitude: 35.205143, longitude: 129.101517 },
-                { no: '407', name: '서동역(4호선)',latitude: 35.213333, longitude: 129.107683 },
-                { no: '408', name: '금사역(4호선)',latitude: 35.215829, longitude: 129.115153 },
-                { no: '409', name: '반여농산물역(4호선)',latitude: 35.217779, longitude: 129.124061 },
-                { no: '410', name: '석대역(4호선)',latitude: 35.21811162, longitude: 129.137179 },
-                { no: '411', name: '영산대역(4호선)',latitude: 35.225777, longitude: 129.146149 },
-                { no: '412', name: '윗반송역(4호선)',latitude: 35.232506, longitude: 129.154024 },
-                { no: '413', name: '고촌역(4호선)',latitude: 35.236031, longitude: 129.1604437 },
-                { no: '414', name: '안평역(4호선)',latitude: 35.237363, longitude: 129.171823 },
+                { no: '402', name: '동래역(4호선)', latitude: 35.204834, longitude: 129.077082 },
+                { no: '403', name: '수안역(4호선)', latitude: 35.201828, longitude: 129.083806 },
+                { no: '404', name: '낙민역(4호선)', latitude: 35.200254, longitude: 129.090774 },
+                { no: '405', name: '충렬사역(4호선)', latitude: 35.199859, longitude: 129.097636 },
+                { no: '406', name: '명장역(4호선)', latitude: 35.205143, longitude: 129.101517 },
+                { no: '407', name: '서동역(4호선)', latitude: 35.213333, longitude: 129.107683 },
+                { no: '408', name: '금사역(4호선)', latitude: 35.215829, longitude: 129.115153 },
+                { no: '409', name: '반여농산물역(4호선)', latitude: 35.217779, longitude: 129.124061 },
+                { no: '410', name: '석대역(4호선)', latitude: 35.21811162, longitude: 129.137179 },
+                { no: '411', name: '영산대역(4호선)', latitude: 35.225777, longitude: 129.146149 },
+                { no: '412', name: '윗반송역(4호선)', latitude: 35.232506, longitude: 129.154024 },
+                { no: '413', name: '고촌역(4호선)', latitude: 35.236031, longitude: 129.1604437 },
+                { no: '414', name: '안평역(4호선)', latitude: 35.237363, longitude: 129.171823 },
+
+                { bg_no:'1', bno: '0101', name: '사상(김해)', latitude: 35.1624, longitude: 128.9857 },
+                { bg_no:'2', bno: '0102', name: '괘법르네시떼(김해)', latitude: 35.1634, longitude: 128.9777 },
+                { bg_no:'3', bno: '0103', name: '서부산유통(김해)', latitude: 35.1655, longitude: 128.9548 },
+                { bg_no:'4', bno: '0104', name: '공항(김해)', latitude: 35.1782, longitude: 128.9505 },
+                { bg_no:'5', bno: '0105', name: '덕두(김해)', latitude: 35.1821, longitude: 128.9541 },
+                { bg_no:'6', bno: '0106', name: '등구(김해)', latitude: 35.1679, longitude: 128.9538 },
+                { bg_no:'7', bno: '0107', name: '대저(김해)', latitude: 35.2133, longitude: 128.9606 },
+                { bg_no:'8', bno: '0108', name: '평강(김해)', latitude: 35.2142, longitude: 128.9508 },
+                { bg_no:'9', bno: '0109', name: '대사(김해)', latitude: 35.2178, longitude: 128.9384 },
+                { bg_no:'10', bno: '0110', name: '불암(김해)', latitude: 35.22216258, longitude: 128.9278931 },
+                { bg_no:'11', bno: '0111', name: '지내(김해)', latitude: 35.22750079, longitude: 128.9237205 },
+                { bg_no:'12', bno: '0112', name: '김해대학(김해)', latitude: 35.22899575, longitude: 128.9156126 },
+                { bg_no:'13', bno: '0113', name: '인제대(김해)', latitude: 35.22810002, longitude: 128.9017368 },
+                { bg_no:'14', bno: '0114', name: '김해시청(김해)', latitude: 35.22710363, longitude: 128.8904116 },
+                { bg_no:'15', bno: '0115', name: '부원(김해)', latitude: 35.22646715, longitude: 128.8839 },
+                { bg_no:'16', bno: '0116', name: '봉황(김해)', latitude: 35.22726621, longitude: 128.8743058 },
+                { bg_no:'17', bno: '0117', name: '수로왕릉(김해)', latitude: 35.23282105, longitude: 128.8721413 },
+                { bg_no:'18', bno: '0118', name: '박물관(김해)', latitude: 35.2400654, longitude: 128.8718635 },
+                { bg_no:'19', bno: '0119', name: '연지공원(김해)', latitude: 35.24965739, longitude: 128.8692912 },
+                { bg_no:'20', bno: '0120', name: '장신대(김해)', latitude: 35.25955584, longitude: 128.8671134 },
+                { bg_no:'21', bno: '0121', name: '가야대(김해)', latitude: 35.26672766, longitude: 128.8650711 },
 
             ];
 
@@ -238,6 +270,8 @@
                 const distance = calculateDistance(latitude, longitude, station.latitude, station.longitude);
                 // console.log(distance);
                 return {
+                    bg_no:station.bg_no,
+                    bno:station.bno,
                     no: station.no,
                     name: station.name,
                     distance: distance
@@ -256,6 +290,8 @@
             // 가장 가까운 지하철 역들의 이름을 가져옴
             const nearestStations = stationDistances.slice(0, numberOfStations).map(function (station) {
                 return {
+                    bg_no:station.bg_no,
+                    bno:station.bno,
                     no: station.no,
                     name: station.name,
                 };
@@ -285,6 +321,9 @@
                 } else if (nearestStations[i].no < 200 && nearestStations[i].no > 99) {
                     var result = sta(i, day_cd, 1, nearestStations[i].no, nearestStations[i].name, '다대포', '노포');
                 }
+                else if (nearestStations[i].bg_no < 30 ) {
+                    var result = sta_bg(i, bg_day_cd, nearestStations[i].bno, nearestStations[i].name, train_no);
+                }
             }
         });
 
@@ -296,7 +335,7 @@
             })
                 .done(function (p) {
 
-                    $("#stat" + no + "").append(stincd + " " + name);
+                    $("#stat" + no + "").append(name);
 
                     var time = new Date();
                     var years = time.getFullYear();
@@ -387,51 +426,51 @@
 
 
 
-                    /*
-
-                    for (i = 0; i < p.body.length; i++) {
-                        arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
-                    }
-
-                    const arr_24station = arr_station.map(row => {
-                        return row.map(str => {
-                            if (str.substring(0, 2) === "00") {
-                                return "24" + str.substring(2);
-                            } else {
-                                return str;
-                            }
+                        /*
+    
+                        for (i = 0; i < p.body.length; i++) {
+                            arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
+                        }
+    
+                        const arr_24station = arr_station.map(row => {
+                            return row.map(str => {
+                                if (str.substring(0, 2) === "00") {
+                                    return "24" + str.substring(2);
+                                } else {
+                                    return str;
+                                }
+                            });
                         });
-                    });
-
-                    // 도착시간을 24시간제로 변경
-
-                    arr_24station.sort(function (a, b) {
-                        return a[0] - b[0];
-                    });
-                    // 시간순으로 정렬
-                    // console.log(arr_24station);
-
-                    for (i = 0; i < arr_24station.length; i++) {
-
-                        new_3sub = cur_time - arr_24station[i][1];
-                        // 현재시간과 도착시간 차이
-
-                        if (new_3sub < 0) {
-                            if (arr_24station[i][0] % 2 == 0) {
-                                arr_dn.push(arr_24station[i]);
-                                //열차번호가 짝수이면 하선
-                            } else {
-                                arr_up.push(arr_24station[i]);
-                                //열차번호가 홀수이면 상선
+    
+                        // 도착시간을 24시간제로 변경
+    
+                        arr_24station.sort(function (a, b) {
+                            return a[0] - b[0];
+                        });
+                        // 시간순으로 정렬
+                        // console.log(arr_24station);
+    
+                        for (i = 0; i < arr_24station.length; i++) {
+    
+                            new_3sub = cur_time - arr_24station[i][1];
+                            // 현재시간과 도착시간 차이
+    
+                            if (new_3sub < 0) {
+                                if (arr_24station[i][0] % 2 == 0) {
+                                    arr_dn.push(arr_24station[i]);
+                                    //열차번호가 짝수이면 하선
+                                } else {
+                                    arr_up.push(arr_24station[i]);
+                                    //열차번호가 홀수이면 상선
+                                }
                             }
                         }
-                    }
-                    //  $("#day_hann").append(day_han);
-                    var last_up = arr_24station.length - 2;
-                    var last_dn = arr_24station.length - 1;
-
-                    if (cur_time > arr_24station[last_up][1] && cur_time <= 245959) {
-*/
+                        //  $("#day_hann").append(day_han);
+                        var last_up = arr_24station.length - 2;
+                        var last_dn = arr_24station.length - 1;
+    
+                        if (cur_time > arr_24station[last_up][1] && cur_time <= 245959) {
+    */
                         $("#" + no + "_up").append("열차운행 종료<br>");
                         $("#" + no + "_up").append("<div class='gr-line'></div>");
                         $("#count_" + no + "_up").append("" + sang + "행 열차 종료");
@@ -489,7 +528,7 @@
 
                     }
                     if (cur_time > arr_dn_24station[last_dn][1] && cur_time <= 245959) {
-                  //  if (cur_time > arr_24station[last_dn][1] && cur_time <= 245959) {
+                        //  if (cur_time > arr_24station[last_dn][1] && cur_time <= 245959) {
                         $("#" + no + "_dn").append("열차운행 종료");
                         $("#" + no + "_dn").append("<div class='gr-line'></div>");
                         $("#count_" + no + "_dn").append("" + sang + "행 열차 종료");
@@ -551,7 +590,241 @@
         }
 
 
-      
+
+        function sta_bg(bno, bg_day_cd, stincd, name, train_no) {
+
+            $.ajax({
+                method: "GET",
+                url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BG&dayCd=" + day_cd + "&lnCd=B1&stinCd=" + stincd + ""
+            })
+                .done(function (p) {
+
+                    console.log(p);
+                    console.log(stincd);
+                    $("#stat" + bno + "").append(name);
+
+                    var time = new Date();
+                    var years = time.getFullYear();
+                    var month = time.getMonth();
+                    var date = time.getDate();
+                    var hours = time.getHours();
+
+                    if (hours < 10 && hours > 0) {
+                        hours = '0' + hours;
+                    } else if (hours == 0) {
+                        hours = '24';
+                    } else {
+                        hours = hours;
+                    }
+
+                    var minutes = time.getMinutes();
+                    var seconds = time.getSeconds();
+
+                    var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+
+                    var arr_station = new Array();
+                    var arr_up = new Array();
+                    var arr_dn = new Array();
+
+                    if (stincd == '0101') {
+                        for (i = 0; i < p.body.length; i++) {
+                            if (p.body[i].trnNo > train_no) {
+                                arr_station.push([p.body[i].trnNo, p.body[i].dptTm]);
+                            } else {
+                                arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
+                            }
+                        }
+                    }
+                    else if (stincd == '0121') {
+                        for (i = 0; i < p.body.length; i++) {
+                            if (p.body[i].trnNo > train_no) {
+                                arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
+                            } else {
+                                arr_station.push([p.body[i].trnNo, p.body[i].dptTm]);
+                            }
+                        }
+
+                    }
+                    else {
+                        for (i = 0; i < p.body.length; i++) {
+                            arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
+                        }
+
+                    }
+
+                    const arr_24station = arr_station.map(row => {
+                        return row.map(str => {
+                            if (str.substring(0, 2) === "00") {
+                                return "24" + str.substring(2);
+                            } else {
+                                return str;
+                            }
+                        });
+                    });
+
+
+                    // 도착시간을 24시간제로 변경
+
+                    arr_24station.sort(function (a, b) {
+                        return a[0] - b[0];
+                    });
+                    // 시간순으로 정렬
+                    console.log(arr_24station);
+
+                    for (i = 0; i < arr_24station.length; i++) {
+
+                        new_3sub = cur_time - arr_24station[i][1];
+                        // 현재시간과 도착시간 차이
+
+                        if (new_3sub < 0) {
+                            if (arr_24station[i][0] > train_no) {
+                                arr_dn.push(arr_24station[i]);
+                                //열차번호가 2000이상이면 하선
+                            } else {
+                                arr_up.push(arr_24station[i]);
+                                //열차번호가 2000이하 상선
+                            }
+                        }
+                    }
+
+                    var last_up = arr_24station.length / 2 - 1;
+                    console.log(last_up);
+                    var last_dn = arr_24station.length - 1;
+
+                    if (cur_time > arr_24station[last_up][1] && cur_time <= 245959) {
+
+                        $("#" + bno + "_up").append("열차운행 종료<br>");
+                        $("#" + bno + "_up").append("<div class='gr-line'></div>");
+                        $("#count_" + bno + "_up").append("사상행  열차종료");
+
+                    } else {
+
+                        var length_up = arr_up.length;
+
+                        if (length_up > 3) {
+                            length_up = 3;
+                        }
+
+
+                        for (i = 0; i < length_up; i++) {
+                            var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
+                            if (i < 2) {
+                                $("#" + bno + "_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                                $("#" + bno + "_up").append("<div class='gr-line'></div>");
+                            } else {
+                                $("#" + bno + "_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                            }
+                        }
+
+                        const ho_up = arr_up[0][1].substr(0, 2);
+                        const mi_up = arr_up[0][1].substr(2, 2);
+                        const se_up = arr_up[0][1].substr(4, 2);
+                        const targetDate_up = new Date(years, month, date, ho_up, mi_up, se_up);
+
+                        // 1초마다 남은 시간 업데이트
+                        setInterval(function () {
+                            // 현재 날짜와의 차이 계산
+                            const now = new Date().getTime();
+                            const timeLeft = targetDate_up - now;
+
+                            // 남은 시간 계산
+                            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                            // 결과 출력
+
+                            if (hours < 1 && minutes < 1) {
+                                const countdownElement = document.getElementById("count_" + bno + "_up");
+                                countdownElement.innerHTML = `<span style='color:red'>사상행   ${hours < 10 ? ` 0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                if (timeLeft < 0) {
+                                    clearInterval();
+                                    countdownElement.innerHTML = "사상행 열차출발";
+                                }
+                            } else {
+                                const countdownElement = document.getElementById("count_" + bno + "_up");
+                                countdownElement.innerHTML = `사상행   ${hours < 10 ? ` 0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                            }
+                            // 타겟 날짜가 지나면 종료
+
+                        }, 1000);
+
+                    }
+
+                    if (cur_time > arr_24station[last_dn][1] && cur_time <= 245959) {
+                        $("#" + no + "_dn").append("열차운행 종료");
+                        $("#" + no + "_dn").append("<div class='gr-line'></div>");
+                        $("#count_" + bno + "_dn").append("가야대행 열차종료");
+                    } else {
+                        var length_dn = arr_dn.length;
+
+                        if (length_dn > 3) {
+                            length_dn = 3;
+                        }
+
+                        for (i = 0; i < length_dn; i++) {
+
+                            var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
+
+                            if (i < 2) {
+                                $("#" + bno + "_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                                $("#" + bno + "_dn").append("<div class='gr-line'></div>");
+                            } else {
+                                $("#" + bno + "_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                            }
+                        }
+
+                        const ho_dn = arr_dn[0][1].substr(0, 2);
+                        const mi_dn = arr_dn[0][1].substr(2, 2);
+                        const se_dn = arr_dn[0][1].substr(4, 2);
+
+
+                        const targetDate_dn = new Date(years, month, date, ho_dn, mi_dn, se_dn);
+
+                        // 1초마다 남은 시간 업데이트
+                        setInterval(function () {
+                            // 현재 날짜와의 차이 계산
+                            const now = new Date().getTime();
+                            const timeLeft = targetDate_dn - now;
+
+                            // 남은 시간 계산
+                            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                            // 결과 출력
+                            //  const countdownElement = document.getElementById("count_301_dn");
+                            //  countdownElement.innerHTML = `대저행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+                            if (hours < 1 && minutes < 1) {
+                                const countdownElement = document.getElementById("count_" + bno + "_dn");
+                                countdownElement.innerHTML = `<span style='color:red'>가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                if (timeLeft < 0) {
+                                    clearInterval();
+                                    countdownElement.innerHTML = "가야대행 열차출발";
+                                }
+                            } else {
+                                const countdownElement = document.getElementById("count_" +bno + "_dn");
+                                countdownElement.innerHTML = `가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                            }
+
+
+                            // 타겟 날짜가 지나면 종료
+
+                        }, 1000);
+
+                    }
+                });
+        }
+
+
+
+
+
+
+
     </script>
 
 
