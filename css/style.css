@@ -29,6 +29,13 @@
     text-align: center;
 }
 
+.cur_item {
+    width: 300px;
+    height: 95px;
+    margin: 1px 1px 1px 1px;
+    text-align: center;
+}
+
 .clock {
     position: fixed;
     top: 0;
@@ -136,6 +143,14 @@
     background: #8653a2;
 }
 
+.up {
+    background: #f1eff3;
+}
+
+.dn {
+    background: #f1f4f2;
+}
+
 .sche {
     font-family: 'GangwonEdu_OTFBoldA';
     color: black;
@@ -180,7 +195,7 @@
 .gimhae {
     font-family: 'GangwonEdu_OTFBoldA';
     color: white;
-    font-size: 0.85em;
+    font-size: 0.75em;
     margin-top: 3px;
     margin-bottom: 3px;
 }
@@ -188,7 +203,7 @@
 .gimhae_bg {
     font-family: 'GangwonEdu_OTFBoldA';
     color: black;
-    font-size: 0.85em;
+    font-size: 0.75em;
     margin-top: 3px;
     margin-bottom: 3px;
 }
