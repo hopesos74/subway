@@ -148,11 +148,15 @@
 }
 
 .up {
-    background: #f1eff3;
+    background: #f0e0a1;
 }
 
+.center {
+    background: beige;
+    height: 21px;
+}
 .dn {
-    background: #f1f4f2;
+    background: #bef4b8;
 }
 
 .sche {
