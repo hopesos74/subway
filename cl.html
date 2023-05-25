@@ -311,7 +311,7 @@
 
         // 현재 위치를 기반으로 가까운 지하철 역 10개 찾기
         getCurrentLocation(function (latitude, longitude) {
-            const nearestStations = findNearestStations(latitude, longitude, 5);
+            const nearestStations = findNearestStations(latitude, longitude, 6);
 
             console.log(nearestStations);
 
@@ -874,7 +874,7 @@
 
     <script>
 
-        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 6; i++) {
             document.write("<div class='container'>");
             document.write("<div class='cur_item item1'>");
             document.write("<p id='next" + i + "' class='sche1'></p>");
