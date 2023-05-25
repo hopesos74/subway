@@ -327,7 +327,7 @@
                     var result = sta(i, day_cd, 1, nearestStations[i].no, nearestStations[i].name,  nearestStations[i].prev, nearestStations[i].next, '다대포', '노포');
                 }
                 else if (nearestStations[i].bg_no < 30 ) {
-                    var result = sta_bg(i, bg_day_cd, nearestStations[i].bno, nearestStations[i].name, train_no);
+                    var result = sta_bg(i, bg_day_cd, nearestStations[i].bno, nearestStations[i].name,   nearestStations[i].prev, nearestStations[i].next, train_no);
                 }
             }
         });
@@ -615,7 +615,7 @@
                     $("#stat" + bno + "").append("<div class='stat line_bg sche2'>"+name+"</div>");
                     $("#next" + bno + "").append("<div class='stat line_bg sche1'>"+next+"</div>");
                     $("#prev" + bno + "").append("<div class='stat line_bg sche1'>"+prev+"</div>");
-                    $("#stat" + bno + "").append(name);
+                   
 
                     var time = new Date();
                     var years = time.getFullYear();
@@ -751,14 +751,14 @@
 
                             if (hours < 1 && minutes < 1) {
                                 const countdownElement = document.getElementById("count_" + bno + "_up");
-                                countdownElement.innerHTML = `<span style='color:red'>사상행   ${hours < 10 ? ` 0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                countdownElement.innerHTML = `<span style='color:red'><< 사상행   ${hours < 10 ? ` 0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
                                     countdownElement.innerHTML = "사상행 열차출발";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + bno + "_up");
-                                countdownElement.innerHTML = `사상행   ${hours < 10 ? ` 0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                                countdownElement.innerHTML = `<< 사상행   ${hours < 10 ? ` 0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
                             }
                             // 타겟 날짜가 지나면 종료
 
@@ -767,8 +767,8 @@
                     }
 
                     if (cur_time > arr_24station[last_dn][1] && cur_time <= 245959) {
-                        $("#" + no + "_dn").append("열차운행 종료");
-                        $("#" + no + "_dn").append("<div class='gr-line'></div>");
+                        $("#" + bno + "_dn").append("열차운행 종료");
+                        $("#" + bno + "_dn").append("<div class='gr-line'></div>");
                         $("#count_" + bno + "_dn").append("가야대행 열차종료");
                     } else {
                         var length_dn = arr_dn.length;
@@ -814,14 +814,14 @@
 
                             if (hours < 1 && minutes < 1) {
                                 const countdownElement = document.getElementById("count_" + bno + "_dn");
-                                countdownElement.innerHTML = `<span style='color:red'>가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                countdownElement.innerHTML = `<span style='color:red'>가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} >></span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "가야대행 열차출발";
+                                    countdownElement.innerHTML = "가야대행 열차출발 >>";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" +bno + "_dn");
-                                countdownElement.innerHTML = `가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                                countdownElement.innerHTML = `가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} >>`;
                             }
 
 
@@ -872,8 +872,6 @@
     <div class="blank3"></div>
 
 
-
-
     <script>
 
         for (i = 0; i < 5; i++) {
@@ -886,9 +884,11 @@
             document.write("<div class='blank-line'></div>");
             document.write("<div id='count_" + i + "_up' class='sche1 up'></div>");
             document.write("<div class='gr-line'></div>");
+            document.write("<div class='center'></div>");
+            document.write("<div class='gr-line'></div>");
             document.write("<div id='count_" + i + "_dn' class='sche1 dn'></div></div>");
             document.write("<div class='cur_item item3'>"); 
-                document.write("<p id='prev" + i + "' class='sche1'></p>");
+            document.write("<p id='prev" + i + "' class='sche1'></p>");
             document.write("<p id='" + i + "_dn' class='sche1 dn'></p> </div></div>");
            
         }
