@@ -642,13 +642,12 @@
 
             $.ajax({
                 method: "GET",
-                url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BG&dayCd=" + day_cd + "&lnCd=B1&stinCd=" + stincd + ""
+                url: "https://openapi.kric.go.kr/openapi/trainUseInfo/subwayTimetable?serviceKey=$2a$10$l3epFs0f4zM9qRe7x9hXueiHsovU.Jb7PomRkK.qvlSCP5sDVZdpW&format=json&railOprIsttCd=BG&dayCd=" + bg_day_cd + "&lnCd=B1&stinCd=" + stincd + ""
             })
                 .done(function (p) {
 
                     console.log(p);
                     console.log(stincd);
-
 
                     $("#stat" + bno + "").append("<div class='stat line_bg sche2'>" + name + "</div>");
                     $("#next" + bno + "").append("<div class='stat line_bg sche2'>" + next + "</div>");
