@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/weather-icons-wind.css">
     <link rel="stylesheet" href="css/weather-icons-wind.min.css">
     <link rel="stylesheet" href="css/weather-icons.css">
+    <script src="https://kit.fontawesome.com/111ca5416a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -162,145 +163,145 @@
         function findNearestStations(latitude, longitude, numberOfStations) {
             // 전체 지하철 역 정보가 담긴 배열 (예시)
             const subwayStations = [
-                { no: '100', name: '동매(1호선)', prev: '신평 >>', next: '', latitude: 35.0899, longitude: 128.9742 },
-                { no: '101', name: '신평(1호선)', prev: '하단 >>', next: '<< 종착역', latitude: 35.095179, longitude: 128.960564 },
-                { no: '102', name: '하단(1호선)', prev: '당리 >>', next: '<< 신평', latitude: 35.10618, longitude: 128.966803 },
-                { no: '103', name: '당리(1호선)', prev: '사하 >>', next: '<< 하단', latitude: 35.103532, longitude: 128.973846 },
-                { no: '104', name: '사하(1호선)', prev: '괴정 >>', next: '<< 당리', latitude: 35.099847, longitude: 128.9831 },
-                { no: '105', name: '괴정(1호선)', prev: '대티 >>', next: '<< 사하', latitude: 35.099816, longitude: 128.992144 },
-                { no: '106', name: '대티(1호선)', prev: '서대신 >>', next: '<< 괴정', latitude: 35.103126, longitude: 128.999936 },
-                { no: '107', name: '서대신(1호선)', prev: '동대신 >>', next: '<< 대티', latitude: 35.110937, longitude: 129.012178 },
-                { no: '108', name: '동대신(1호선)', prev: '토성 >>', next: '<< 서대신', latitude: 35.110452, longitude: 129.017684 },
-                { no: '109', name: '토성(1호선)', prev: '자갈치 >>', next: '<< 동대신', latitude: 35.100727, longitude: 129.019776 },
-                { no: '110', name: '자갈치(1호선)', prev: '남포 >>', next: '<< 토성', latitude: 35.097372, longitude: 129.02667 },
-                { no: '111', name: '남포(1호선)', prev: '중앙 >>', next: '<< 자갈치', latitude: 35.097953, longitude: 129.034869 },
-                { no: '112', name: '중앙(1호선)', prev: '부산 >>', next: '<< 남포', latitude: 35.103837, longitude: 129.036371 },
-                { no: '113', name: '부산(1호선)', prev: '초량 >>', next: '<< 중앙', latitude: 35.115224, longitude: 129.0397 },
-                { no: '114', name: '초량(1호선)', prev: '부산진 >>', next: '<< 부산', latitude: 35.121168, longitude: 129.043039 },
-                { no: '115', name: '부산진(1호선)', prev: '좌천 >>', next: '<< 초량', latitude: 35.127787, longitude: 129.047894 },
-                { no: '116', name: '좌천(1호선)', prev: '범일 >>', next: '<< 부산진', latitude: 35.134361, longitude: 129.054455 },
-                { no: '117', name: '범일(1호선)', prev: '범내골 >>', next: '<< 좌천', latitude: 35.140952, longitude: 129.059352 },
-                { no: '118', name: '범내골(1호선)', prev: '서면 >>', next: '<< 범일', latitude: 35.1474, longitude: 129.059261 },
-                { no: '119', name: '서면(1호선)', prev: '부전 >>', next: '<< 범내골', latitude: 35.158282, longitude: 129.059556 },
-                { no: '120', name: '부전(1호선)', prev: '양정 >>', next: '<< 서면', latitude: 35.162587, longitude: 129.062952 },
-                { no: '121', name: '양정(1호선)', prev: '시청 >>', next: '<< 부전', latitude: 35.173122, longitude: 129.071366 },
-                { no: '122', name: '시청(1호선)', prev: '연산 >>', next: '<< 양정', latitude: 35.179837, longitude: 129.076642 },
-                { no: '123', name: '연산(1호선)', prev: '교대 >>', next: '<< 시청', latitude: 35.186168, longitude: 129.081534 },
-                { no: '124', name: '교대(1호선)', prev: '동래 >>', next: '<< 연산', latitude: 35.19605, longitude: 129.080035 },
-                { no: '125', name: '동래(1호선)', prev: '명륜 >>', next: '<< 교대', latitude: 35.205641, longitude: 129.078506 },
-                { no: '126', name: '명륜(1호선)', prev: '온천장 >>', next: '<< 동래', latitude: 35.212551, longitude: 129.079659 },
-                { no: '127', name: '온천장(1호선)', prev: '부산대 >>', next: '<< 명륜', latitude: 35.220249, longitude: 129.086437 },
-                { no: '128', name: '부산대(1호선)', prev: '장전 >>', next: '<< 온천장', latitude: 35.229609, longitude: 129.089358 },
-                { no: '129', name: '장전(1호선)', prev: '구서 >>', next: '<< 부산대', latitude: 35.23809095, longitude: 129.088111 },
-                { no: '130', name: '구서(1호선)', prev: '두실 >>', next: '<< 장전', latitude: 35.247407, longitude: 129.091327 },
-                { no: '131', name: '두실(1호선)', prev: '남산 >>', next: '<< 구서', latitude: 35.256959, longitude: 129.091386 },
-                { no: '132', name: '남산(1호선)', prev: '범어사 >>', next: '<< 두실', latitude: 35.265404, longitude: 129.092496 },
-                { no: '133', name: '범어사(1호선)', prev: '노포 >>', next: '<< 남산', latitude: 35.273105, longitude: 129.092679 },
-                { no: '134', name: '노포(1호선)', prev: ' 종착역', next: '<< 범어사', latitude: 35.28468657, longitude: 129.094967 },
-                { no: '195', name: '다대포(1호선)', prev: '다대포항 >>', next: '종착역', latitude: 35.04867, longitude: 128.9641 },
-                { no: '196', name: '다대포항(1호선)', prev: '낫개 >>', next: '<< 다대포', latitude: 35.05782, longitude: 128.9713 },
-                { no: '197', name: '낫개(1호선)', prev: '신장림 >>', next: '<< 다대포항', latitude: 35.065265, longitude: 128.979873 },
-                { no: '198', name: '신장림(1호선)', prev: '장림 >>', next: '<< 낫개', latitude: 35.074433, longitude: 128.977041 },
-                { no: '199', name: '장림(1호선)', prev: '동매 >>', next: '<< 신장림', latitude: 35.08109, longitude: 128.9775 },
+                { no: '100', name: '동매(1호선)', prev: '신평', next: '', latitude: 35.0899, longitude: 128.9742 },
+                { no: '101', name: '신평(1호선)', prev: '하단', next: '종착역', latitude: 35.095179, longitude: 128.960564 },
+                { no: '102', name: '하단(1호선)', prev: '당리', next: '신평', latitude: 35.10618, longitude: 128.966803 },
+                { no: '103', name: '당리(1호선)', prev: '사하', next: '하단', latitude: 35.103532, longitude: 128.973846 },
+                { no: '104', name: '사하(1호선)', prev: '괴정', next: '당리', latitude: 35.099847, longitude: 128.9831 },
+                { no: '105', name: '괴정(1호선)', prev: '대티', next: '사하', latitude: 35.099816, longitude: 128.992144 },
+                { no: '106', name: '대티(1호선)', prev: '서대신', next: '괴정', latitude: 35.103126, longitude: 128.999936 },
+                { no: '107', name: '서대신(1호선)', prev: '동대신', next: '대티', latitude: 35.110937, longitude: 129.012178 },
+                { no: '108', name: '동대신(1호선)', prev: '토성', next: '서대신', latitude: 35.110452, longitude: 129.017684 },
+                { no: '109', name: '토성(1호선)', prev: '자갈치', next: '동대신', latitude: 35.100727, longitude: 129.019776 },
+                { no: '110', name: '자갈치(1호선)', prev: '남포', next: '토성', latitude: 35.097372, longitude: 129.02667 },
+                { no: '111', name: '남포(1호선)', prev: '중앙', next: '자갈치', latitude: 35.097953, longitude: 129.034869 },
+                { no: '112', name: '중앙(1호선)', prev: '부산', next: '남포', latitude: 35.103837, longitude: 129.036371 },
+                { no: '113', name: '부산(1호선)', prev: '초량', next: '중앙', latitude: 35.115224, longitude: 129.0397 },
+                { no: '114', name: '초량(1호선)', prev: '부산진', next: '부산', latitude: 35.121168, longitude: 129.043039 },
+                { no: '115', name: '부산진(1호선)', prev: '좌천', next: '초량', latitude: 35.127787, longitude: 129.047894 },
+                { no: '116', name: '좌천(1호선)', prev: '범일', next: '부산진', latitude: 35.134361, longitude: 129.054455 },
+                { no: '117', name: '범일(1호선)', prev: '범내골', next: '좌천', latitude: 35.140952, longitude: 129.059352 },
+                { no: '118', name: '범내골(1호선)', prev: '서면', next: '범일', latitude: 35.1474, longitude: 129.059261 },
+                { no: '119', name: '서면(1호선)', prev: '부전', next: '범내골', latitude: 35.158282, longitude: 129.059556 },
+                { no: '120', name: '부전(1호선)', prev: '양정', next: '서면', latitude: 35.162587, longitude: 129.062952 },
+                { no: '121', name: '양정(1호선)', prev: '시청', next: '부전', latitude: 35.173122, longitude: 129.071366 },
+                { no: '122', name: '시청(1호선)', prev: '연산', next: '양정', latitude: 35.179837, longitude: 129.076642 },
+                { no: '123', name: '연산(1호선)', prev: '교대', next: '시청', latitude: 35.186168, longitude: 129.081534 },
+                { no: '124', name: '교대(1호선)', prev: '동래', next: '연산', latitude: 35.19605, longitude: 129.080035 },
+                { no: '125', name: '동래(1호선)', prev: '명륜', next: '교대', latitude: 35.205641, longitude: 129.078506 },
+                { no: '126', name: '명륜(1호선)', prev: '온천장', next: '동래', latitude: 35.212551, longitude: 129.079659 },
+                { no: '127', name: '온천장(1호선)', prev: '부산대', next: '명륜', latitude: 35.220249, longitude: 129.086437 },
+                { no: '128', name: '부산대(1호선)', prev: '장전', next: '온천장', latitude: 35.229609, longitude: 129.089358 },
+                { no: '129', name: '장전(1호선)', prev: '구서', next: '부산대', latitude: 35.23809095, longitude: 129.088111 },
+                { no: '130', name: '구서(1호선)', prev: '두실', next: '장전', latitude: 35.247407, longitude: 129.091327 },
+                { no: '131', name: '두실(1호선)', prev: '남산', next: '구서', latitude: 35.256959, longitude: 129.091386 },
+                { no: '132', name: '남산(1호선)', prev: '범어사', next: '두실', latitude: 35.265404, longitude: 129.092496 },
+                { no: '133', name: '범어사(1호선)', prev: '노포', next: '남산', latitude: 35.273105, longitude: 129.092679 },
+                { no: '134', name: '노포(1호선)', prev: ' 종착역', next: '범어사', latitude: 35.28468657, longitude: 129.094967 },
+                { no: '195', name: '다대포(1호선)', prev: '다대포항', next: '종착역', latitude: 35.04867, longitude: 128.9641 },
+                { no: '196', name: '다대포항(1호선)', prev: '낫개', next: '다대포', latitude: 35.05782, longitude: 128.9713 },
+                { no: '197', name: '낫개(1호선)', prev: '신장림', next: '다대포항', latitude: 35.065265, longitude: 128.979873 },
+                { no: '198', name: '신장림(1호선)', prev: '장림', next: '낫개', latitude: 35.074433, longitude: 128.977041 },
+                { no: '199', name: '장림(1호선)', prev: '동매', next: '신장림', latitude: 35.08109, longitude: 128.9775 },
 
-                { no: '201', name: '장산(2호선)', prev: '중동 >>', next: '<< 종착역', latitude: 35.169914, longitude: 129.176986 },
-                { no: '202', name: '중동(2호선)', prev: '해운대 >>', next: '<< 장산', latitude: 35.1667, longitude: 129.168604 },
-                { no: '203', name: '해운대(2호선)', prev: '동백 >>', next: '<< 중동', latitude: 35.163672, longitude: 129.158908 },
-                { no: '204', name: '동백(2호선)', prev: '벡스코 >>', next: '<< 해운대', latitude: 35.161484, longitude: 129.147897 },
-                { no: '205', name: '벡스코(2호선)', prev: '센텀시티 >>', next: '<< 동백', latitude: 35.168844, longitude: 129.138933 },
-                { no: '206', name: '센텀시티(2호선)', prev: '민락 >>', next: '<< 벡스코', latitude: 35.168827, longitude: 129.131745 },
-                { no: '207', name: '민락(2호선)', prev: '수영 >>', next: '<< 센텀시티', latitude: 35.167228, longitude: 129.121909 },
-                { no: '208', name: '수영(2호선)', prev: '광안 >>', next: '<< 민락', latitude: 35.165227, longitude: 129.114713 },
-                { no: '209', name: '광안(2호선)', prev: '금련산 >>', next: '<< 수영', latitude: 35.157916, longitude: 129.113168 },
-                { no: '210', name: '금련산(2호선)', prev: '남천 >>', next: '<< 광안', latitude: 35.149771, longitude: 129.110961 },
-                { no: '211', name: '남천(2호선)', prev: '경성부경대 >>', next: '<< 금련산', latitude: 35.142139, longitude: 129.107978 },
-                { no: '212', name: '경성부경대(2)', prev: '대연 >>', next: '<< 남천', latitude: 35.137585, longitude: 129.100548 },
-                { no: '213', name: '대연(2호선)', prev: '못골 >>', next: '<< 경성부경대', latitude: 35.135153, longitude: 129.092161 },
-                { no: '214', name: '못골(2호선)', prev: '지게골 >>', next: '<< 대연', latitude: 35.134731, longitude: 129.084415 },
-                { no: '215', name: '지게골(2호선)', prev: '문현 >>', next: '<< 못골', latitude: 35.135574, longitude: 129.074365 },
-                { no: '216', name: '문현(2호선)', prev: '국제금융센터 >>', next: '<< 지게골', latitude: 35.139151, longitude: 129.067399 },
-                { no: '217', name: '국제금융센터(2호선)', prev: '전포 >>', next: '<< 문현', latitude: 35.145817, longitude: 129.066755 },
-                { no: '218', name: '전포(2호선)', prev: '서면 >>', next: '<< 국제금융센터', latitude: 35.153102, longitude: 129.065374 },
-                { no: '219', name: '서면(2호선)', prev: '부암 >>', next: '<< 전포', latitude: 35.15774, longitude: 129.059084 },
-                { no: '220', name: '부암(2호선)', prev: '가야 >>', next: '<< 서면', latitude: 35.157444, longitude: 129.050185 },
-                { no: '221', name: '가야(2호선)', prev: '동의대 >>', next: '<< 부암', latitude: 35.155883, longitude: 129.042817 },
-                { no: '222', name: '동의대(2호선)', prev: '개금 >>', next: '<< 가야', latitude: 35.153986, longitude: 129.03275 },
-                { no: '223', name: '개금(2호선)', prev: '냉정 >>', next: '<< 동의대', latitude: 35.153284, longitude: 129.020533 },
-                { no: '224', name: '냉정(2호선)', prev: '주례 >>', next: '<< 개금', latitude: 35.151254, longitude: 129.012255 },
-                { no: '225', name: '주례(2호선)', prev: '감전 >>', next: '<< 냉정', latitude: 35.150508, longitude: 129.003077 },
-                { no: '226', name: '감전(2호선)', prev: '사상 >>', next: '<< 주례', latitude: 35.155528, longitude: 128.991146 },
-                { no: '227', name: '사상(2호선)', prev: '덕포 >>', next: '<< 감전', latitude: 35.162361, longitude: 128.984621 },
-                { no: '228', name: '덕포(2호선)', prev: '모덕 >>', next: '<< 사상', latitude: 35.173754, longitude: 128.983955 },
-                { no: '229', name: '모덕(2호선)', prev: '모라 >>', next: '<< 덕포', latitude: 35.180366, longitude: 128.985621 },
-                { no: '230', name: '모라(2호선)', prev: '구남 >>', next: '<< 모덕', latitude: 35.189663, longitude: 128.988655 },
-                { no: '231', name: '구남(2호선)', prev: '구명 >>', next: '<< 모라', latitude: 35.196804, longitude: 128.994928 },
-                { no: '232', name: '구명(2호선)', prev: '덕천 >>', next: '<< 구남', latitude: 35.20252, longitude: 128.999322 },
-                { no: '233', name: '덕천(2호선)', prev: '수정 >>', next: '<< 구명', latitude: 35.210219, longitude: 129.005673 },
-                { no: '234', name: '수정(2호선)', prev: '화명 >>', next: '<< 덕천', latitude: 35.223356, longitude: 129.009198 },
-                { no: '235', name: '화명(2호선)', prev: '율리 >>', next: '<< 수정', latitude: 35.236278, longitude: 129.013918 },
-                { no: '236', name: '율리(2호선)', prev: '동원 >>', next: '<< 화명', latitude: 35.246714, longitude: 129.012918 },
-                { no: '237', name: '동원(2호선)', prev: '금곡 >>', next: '<< 율리', latitude: 35.258656, longitude: 129.012392 },
-                { no: '238', name: '금곡(2호선)', prev: '호포 >>', next: '<< 동원', latitude: 35.267248, longitude: 129.0169054 },
-                { no: '239', name: '호포(2호선)', prev: '증산 >>', next: '<< 금곡', latitude: 35.280406, longitude: 129.017097 },
-                { no: '240', name: '증산(2호선)', prev: '부산대양산캠퍼스 >>', next: '<< 호포', latitude: 35.308302, longitude: 129.010246 },
-                { no: '241', name: '부산대양산캠퍼스(2)', prev: '남양산 >>', next: '<< 증산', latitude: 35.316955, longitude: 129.0139408 },
-                { no: '242', name: '남양산(2호선)', prev: '양산 >>', next: '<< 부산대양산캠퍼스', latitude: 35.325359, longitude: 129.019457 },
-                { no: '243', name: '양산(2호선)', prev: '종착역 >>', next: '<< 남양산', latitude: 35.33872773, longitude: 129.026391 },
+                { no: '201', name: '장산(2호선)', prev: '중동', next: '종착역', latitude: 35.169914, longitude: 129.176986 },
+                { no: '202', name: '중동(2호선)', prev: '해운대', next: '장산', latitude: 35.1667, longitude: 129.168604 },
+                { no: '203', name: '해운대(2호선)', prev: '동백', next: '중동', latitude: 35.163672, longitude: 129.158908 },
+                { no: '204', name: '동백(2호선)', prev: '벡스코', next: '해운대', latitude: 35.161484, longitude: 129.147897 },
+                { no: '205', name: '벡스코(2호선)', prev: '센텀시티', next: '동백', latitude: 35.168844, longitude: 129.138933 },
+                { no: '206', name: '센텀시티(2호선)', prev: '민락', next: '벡스코', latitude: 35.168827, longitude: 129.131745 },
+                { no: '207', name: '민락(2호선)', prev: '수영', next: '센텀시티', latitude: 35.167228, longitude: 129.121909 },
+                { no: '208', name: '수영(2호선)', prev: '광안', next: '민락', latitude: 35.165227, longitude: 129.114713 },
+                { no: '209', name: '광안(2호선)', prev: '금련산', next: '수영', latitude: 35.157916, longitude: 129.113168 },
+                { no: '210', name: '금련산(2호선)', prev: '남천', next: '광안', latitude: 35.149771, longitude: 129.110961 },
+                { no: '211', name: '남천(2호선)', prev: '경성부경대', next: '금련산', latitude: 35.142139, longitude: 129.107978 },
+                { no: '212', name: '경성부경대(2)', prev: '대연', next: '남천', latitude: 35.137585, longitude: 129.100548 },
+                { no: '213', name: '대연(2호선)', prev: '못골', next: '경성부경대', latitude: 35.135153, longitude: 129.092161 },
+                { no: '214', name: '못골(2호선)', prev: '지게골', next: '대연', latitude: 35.134731, longitude: 129.084415 },
+                { no: '215', name: '지게골(2호선)', prev: '문현', next: '못골', latitude: 35.135574, longitude: 129.074365 },
+                { no: '216', name: '문현(2호선)', prev: '국제금융센터', next: '지게골', latitude: 35.139151, longitude: 129.067399 },
+                { no: '217', name: '국제금융센터(2호선)', prev: '전포', next: '문현', latitude: 35.145817, longitude: 129.066755 },
+                { no: '218', name: '전포(2호선)', prev: '서면', next: '국제금융센터', latitude: 35.153102, longitude: 129.065374 },
+                { no: '219', name: '서면(2호선)', prev: '부암', next: '전포', latitude: 35.15774, longitude: 129.059084 },
+                { no: '220', name: '부암(2호선)', prev: '가야', next: '서면', latitude: 35.157444, longitude: 129.050185 },
+                { no: '221', name: '가야(2호선)', prev: '동의대', next: '부암', latitude: 35.155883, longitude: 129.042817 },
+                { no: '222', name: '동의대(2호선)', prev: '개금', next: '가야', latitude: 35.153986, longitude: 129.03275 },
+                { no: '223', name: '개금(2호선)', prev: '냉정', next: '동의대', latitude: 35.153284, longitude: 129.020533 },
+                { no: '224', name: '냉정(2호선)', prev: '주례', next: '개금', latitude: 35.151254, longitude: 129.012255 },
+                { no: '225', name: '주례(2호선)', prev: '감전', next: '냉정', latitude: 35.150508, longitude: 129.003077 },
+                { no: '226', name: '감전(2호선)', prev: '사상', next: '주례', latitude: 35.155528, longitude: 128.991146 },
+                { no: '227', name: '사상(2호선)', prev: '덕포', next: '감전', latitude: 35.162361, longitude: 128.984621 },
+                { no: '228', name: '덕포(2호선)', prev: '모덕', next: '사상', latitude: 35.173754, longitude: 128.983955 },
+                { no: '229', name: '모덕(2호선)', prev: '모라', next: '덕포', latitude: 35.180366, longitude: 128.985621 },
+                { no: '230', name: '모라(2호선)', prev: '구남', next: '모덕', latitude: 35.189663, longitude: 128.988655 },
+                { no: '231', name: '구남(2호선)', prev: '구명', next: '모라', latitude: 35.196804, longitude: 128.994928 },
+                { no: '232', name: '구명(2호선)', prev: '덕천', next: '구남', latitude: 35.20252, longitude: 128.999322 },
+                { no: '233', name: '덕천(2호선)', prev: '수정', next: '구명', latitude: 35.210219, longitude: 129.005673 },
+                { no: '234', name: '수정(2호선)', prev: '화명', next: '덕천', latitude: 35.223356, longitude: 129.009198 },
+                { no: '235', name: '화명(2호선)', prev: '율리', next: '수정', latitude: 35.236278, longitude: 129.013918 },
+                { no: '236', name: '율리(2호선)', prev: '동원', next: '화명', latitude: 35.246714, longitude: 129.012918 },
+                { no: '237', name: '동원(2호선)', prev: '금곡', next: '율리', latitude: 35.258656, longitude: 129.012392 },
+                { no: '238', name: '금곡(2호선)', prev: '호포', next: '동원', latitude: 35.267248, longitude: 129.0169054 },
+                { no: '239', name: '호포(2호선)', prev: '증산', next: '금곡', latitude: 35.280406, longitude: 129.017097 },
+                { no: '240', name: '증산(2호선)', prev: '부산대양산캠퍼스', next: '호포', latitude: 35.308302, longitude: 129.010246 },
+                { no: '241', name: '부산대양산캠퍼스(2)', prev: '남양산', next: '증산', latitude: 35.316955, longitude: 129.0139408 },
+                { no: '242', name: '남양산(2호선)', prev: '양산', next: '부산대양산캠퍼스', latitude: 35.325359, longitude: 129.019457 },
+                { no: '243', name: '양산(2호선)', prev: '종착역', next: '남양산', latitude: 35.33872773, longitude: 129.026391 },
 
-                { no: '301', name: '수영(3호선)', prev: '망미 >>', next: '종착역', latitude: 35.167753, longitude: 129.11459 },
-                { no: '302', name: '망미(3호선)', prev: '배산 >>', next: '<< 수영', latitude: 35.171528, longitude: 129.108225 },
-                { no: '303', name: '배산(3호선)', prev: '물만골 >>', next: '<< 망미', latitude: 35.173504, longitude: 129.095498 },
-                { no: '304', name: '물만골(3호선)', prev: '연산 >>', next: '<< 배산', latitude: 35.176808, longitude: 129.085748 },
-                { no: '305', name: '연산(3호선)', prev: '거제 >>', next: '<< 물만골', latitude: 35.186173, longitude: 129.081526 },
-                { no: '306', name: '거제(3호선)', prev: '종합운동장 >>', next: '<< 연산', latitude: 35.188589, longitude: 129.073941 },
-                { no: '307', name: '종합운동장(3호선)', prev: '사직 >>', next: '<< 거제', latitude: 35.19125, longitude: 129.067504 },
-                { no: '308', name: '사직(3호선)', prev: '미남 >>', next: '<< 종합운동장', latitude: 35.198998, longitude: 129.064996 },
-                { no: '309', name: '미남(3호선)', prev: '만덕 >>', next: '<< 사직', latitude: 35.205503, longitude: 129.068061 },
-                { no: '310', name: '만덕(3호선)', prev: '남산정 >>', next: '<< 미남', latitude: 35.213, longitude: 129.036527 },
-                { no: '311', name: '남산정(3호선)', prev: '숙등 >>', next: '<< 만덕', latitude: 35.21334, longitude: 129.023928 },
-                { no: '312', name: '숙등(3호선)', prev: '덕천 >>', next: '<< 남산정', latitude: 35.21197, longitude: 129.012749 },
-                { no: '313', name: '덕천(3호선)', prev: '구포 >>', next: '<< 숙등', latitude: 35.210215, longitude: 129.005671 },
-                { no: '314', name: '구포(3호선)', prev: '강서구청 >>', next: '<< 덕천', latitude: 35.206697, longitude: 128.996366 },
-                { no: '315', name: '강서구청(3호선)', prev: '체육공원 >>', next: '<< 구포', latitude: 35.211247, longitude: 128.981756 },
-                { no: '316', name: '체육공원(3호선)', prev: '대저 >>', next: '<< 강서구청', latitude: 35.212577, longitude: 128.969652 },
-                { no: '317', name: '대저(3호선)', prev: '종착역 >>', next: '<< 체육공원', latitude: 35.213386, longitude: 128.961049 },
+                { no: '301', name: '수영(3호선)', prev: '망미', next: '종착역', latitude: 35.167753, longitude: 129.11459 },
+                { no: '302', name: '망미(3호선)', prev: '배산', next: '수영', latitude: 35.171528, longitude: 129.108225 },
+                { no: '303', name: '배산(3호선)', prev: '물만골', next: '망미', latitude: 35.173504, longitude: 129.095498 },
+                { no: '304', name: '물만골(3호선)', prev: '연산', next: '배산', latitude: 35.176808, longitude: 129.085748 },
+                { no: '305', name: '연산(3호선)', prev: '거제', next: '물만골', latitude: 35.186173, longitude: 129.081526 },
+                { no: '306', name: '거제(3호선)', prev: '종합운동장', next: '연산', latitude: 35.188589, longitude: 129.073941 },
+                { no: '307', name: '종합운동장(3호선)', prev: '사직', next: '거제', latitude: 35.19125, longitude: 129.067504 },
+                { no: '308', name: '사직(3호선)', prev: '미남', next: '종합운동장', latitude: 35.198998, longitude: 129.064996 },
+                { no: '309', name: '미남(3호선)', prev: '만덕', next: '사직', latitude: 35.205503, longitude: 129.068061 },
+                { no: '310', name: '만덕(3호선)', prev: '남산정', next: '미남', latitude: 35.213, longitude: 129.036527 },
+                { no: '311', name: '남산정(3호선)', prev: '숙등', next: '만덕', latitude: 35.21334, longitude: 129.023928 },
+                { no: '312', name: '숙등(3호선)', prev: '덕천', next: '남산정', latitude: 35.21197, longitude: 129.012749 },
+                { no: '313', name: '덕천(3호선)', prev: '구포', next: '숙등', latitude: 35.210215, longitude: 129.005671 },
+                { no: '314', name: '구포(3호선)', prev: '강서구청', next: '덕천', latitude: 35.206697, longitude: 128.996366 },
+                { no: '315', name: '강서구청(3호선)', prev: '체육공원', next: '구포', latitude: 35.211247, longitude: 128.981756 },
+                { no: '316', name: '체육공원(3호선)', prev: '대저', next: '강서구청', latitude: 35.212577, longitude: 128.969652 },
+                { no: '317', name: '대저(3호선)', prev: '종착역', next: '체육공원', latitude: 35.213386, longitude: 128.961049 },
 
-                { no: '401', name: '미남(4호선)', prev: '동래 >>', next: '종착역', latitude: 35.207116, longitude: 129.069172 },
-                { no: '402', name: '동래(4호선)', prev: '수안 >>', next: '<< 미남', latitude: 35.204834, longitude: 129.077082 },
-                { no: '403', name: '수안(4호선)', prev: '낙민 >>', next: '<< 동래', latitude: 35.201828, longitude: 129.083806 },
-                { no: '404', name: '낙민(4호선)', prev: '충렬사 >>', next: '<< 수안', latitude: 35.200254, longitude: 129.090774 },
-                { no: '405', name: '충렬사(4호선)', prev: '명장 >>', next: '<< 낙민', latitude: 35.199859, longitude: 129.097636 },
-                { no: '406', name: '명장(4호선)', prev: '서동 >>', next: '<< 충렬사', latitude: 35.205143, longitude: 129.101517 },
-                { no: '407', name: '서동(4호선)', prev: '금사 >>', next: '<< 명장', latitude: 35.213333, longitude: 129.107683 },
-                { no: '408', name: '금사(4호선)', prev: '반여농산물 >>', next: '<< 서동', latitude: 35.215829, longitude: 129.115153 },
-                { no: '409', name: '반여농산물(4호선)', prev: '석대 >>', next: '<< 금사', latitude: 35.217779, longitude: 129.124061 },
-                { no: '410', name: '석대(4호선)', prev: '영산대 >>', next: '<< 반여농산물', latitude: 35.21811162, longitude: 129.137179 },
-                { no: '411', name: '영산대(4호선)', prev: '윗반송 >>', next: '<< 석대', latitude: 35.225777, longitude: 129.146149 },
-                { no: '412', name: '윗반송(4호선)', prev: '고촌>>', next: '<< 영산대', latitude: 35.232506, longitude: 129.154024 },
-                { no: '413', name: '고촌(4호선)', prev: '안평 >>', next: '<< 윗반송', latitude: 35.236031, longitude: 129.1604437 },
-                { no: '414', name: '안평(4호선)', prev: '종착역', next: '<< 고촌', latitude: 35.237363, longitude: 129.171823 },
+                { no: '401', name: '미남(4호선)', prev: '동래', next: '종착역', latitude: 35.207116, longitude: 129.069172 },
+                { no: '402', name: '동래(4호선)', prev: '수안', next: '미남', latitude: 35.204834, longitude: 129.077082 },
+                { no: '403', name: '수안(4호선)', prev: '낙민', next: '동래', latitude: 35.201828, longitude: 129.083806 },
+                { no: '404', name: '낙민(4호선)', prev: '충렬사', next: '수안', latitude: 35.200254, longitude: 129.090774 },
+                { no: '405', name: '충렬사(4호선)', prev: '명장', next: '낙민', latitude: 35.199859, longitude: 129.097636 },
+                { no: '406', name: '명장(4호선)', prev: '서동', next: '충렬사', latitude: 35.205143, longitude: 129.101517 },
+                { no: '407', name: '서동(4호선)', prev: '금사', next: '명장', latitude: 35.213333, longitude: 129.107683 },
+                { no: '408', name: '금사(4호선)', prev: '반여농산물', next: '서동', latitude: 35.215829, longitude: 129.115153 },
+                { no: '409', name: '반여농산물(4호선)', prev: '석대', next: '금사', latitude: 35.217779, longitude: 129.124061 },
+                { no: '410', name: '석대(4호선)', prev: '영산대', next: '반여농산물', latitude: 35.21811162, longitude: 129.137179 },
+                { no: '411', name: '영산대(4호선)', prev: '윗반송', next: '석대', latitude: 35.225777, longitude: 129.146149 },
+                { no: '412', name: '윗반송(4호선)', prev: '고촌>>', next: '영산대', latitude: 35.232506, longitude: 129.154024 },
+                { no: '413', name: '고촌(4호선)', prev: '안평', next: '윗반송', latitude: 35.236031, longitude: 129.1604437 },
+                { no: '414', name: '안평(4호선)', prev: '종착역', next: '고촌', latitude: 35.237363, longitude: 129.171823 },
 
-                { bg_no: '1', bno: '0101', name: '사상(김해)', prev: '괘법르네시떼 >>', next: '종착역', latitude: 35.1624, longitude: 128.9857 },
-                { bg_no: '2', bno: '0102', name: '괘법르네시떼(김해)', prev: '서부산유통 >>', next: '<< 사상', latitude: 35.1634, longitude: 128.9777 },
-                { bg_no: '3', bno: '0103', name: '서부산유통(김해)', prev: '공항 >>', next: '<< 괘법르네시떼', latitude: 35.1655, longitude: 128.9548 },
-                { bg_no: '4', bno: '0104', name: '공항(김해)', prev: '덕두 >>', next: '<< 서부산유통', latitude: 35.1782, longitude: 128.9505 },
-                { bg_no: '5', bno: '0105', name: '덕두(김해)', prev: '등구 >>', next: '<< 공항', latitude: 35.1821, longitude: 128.9541 },
-                { bg_no: '6', bno: '0106', name: '등구(김해)', prev: '대저 >>', next: '<< 덕두', latitude: 35.1679, longitude: 128.9538 },
-                { bg_no: '7', bno: '0107', name: '대저(김해)', prev: '평강 >>', next: '<< 등구', latitude: 35.2133, longitude: 128.9606 },
-                { bg_no: '8', bno: '0108', name: '평강(김해)', prev: '대사 >>', next: '<< 대저', latitude: 35.2142, longitude: 128.9508 },
-                { bg_no: '9', bno: '0109', name: '대사(김해)', prev: '불암 >>', next: '<< 평강', latitude: 35.2178, longitude: 128.9384 },
-                { bg_no: '10', bno: '0110', name: '불암(김해)', prev: '지내 >>', next: '<< 대사', latitude: 35.22216258, longitude: 128.9278931 },
-                { bg_no: '11', bno: '0111', name: '지내(김해)', prev: '김해대학 >>', next: '<< 불암', latitude: 35.22750079, longitude: 128.9237205 },
-                { bg_no: '12', bno: '0112', name: '김해대학(김해)', prev: '인제대 >>', next: '<< 지내', latitude: 35.22899575, longitude: 128.9156126 },
-                { bg_no: '13', bno: '0113', name: '인제대(김해)', prev: '김해시청 >>', next: '<< 김해대학', latitude: 35.22810002, longitude: 128.9017368 },
-                { bg_no: '14', bno: '0114', name: '김해시청(김해)', prev: '부원 >>', next: '<< 인제대', latitude: 35.22710363, longitude: 128.8904116 },
-                { bg_no: '15', bno: '0115', name: '부원(김해)', prev: '봉황 >>', next: '<< 김해시청', latitude: 35.22646715, longitude: 128.8839 },
-                { bg_no: '16', bno: '0116', name: '봉황(김해)', prev: '수로왕릉 >>', next: '<< 부원', latitude: 35.22726621, longitude: 128.8743058 },
-                { bg_no: '17', bno: '0117', name: '수로왕릉(김해)', prev: '박물관 >>', next: '<< 봉황', latitude: 35.23282105, longitude: 128.8721413 },
-                { bg_no: '18', bno: '0118', name: '박물관(김해)', prev: '연지공원 >>', next: '<< 수로왕릉', latitude: 35.2400654, longitude: 128.8718635 },
-                { bg_no: '19', bno: '0119', name: '연지공원(김해)', prev: '장신대 >>', next: '<< 박물관', latitude: 35.24965739, longitude: 128.8692912 },
-                { bg_no: '20', bno: '0120', name: '장신대(김해)', prev: '가야대 >>', next: '<< 연지공원', latitude: 35.25955584, longitude: 128.8671134 },
-                { bg_no: '21', bno: '0121', name: '가야대(김해)', prev: '종착역 >>', next: '<< 장신대', latitude: 35.26672766, longitude: 128.8650711 },
+                { bg_no: '1', bno: '0101', name: '사상(김해)', prev: '괘법르네시떼', next: '종착역', latitude: 35.1624, longitude: 128.9857 },
+                { bg_no: '2', bno: '0102', name: '괘법르네시떼(김해)', prev: '서부산유통', next: '사상', latitude: 35.1634, longitude: 128.9777 },
+                { bg_no: '3', bno: '0103', name: '서부산유통(김해)', prev: '공항', next: '괘법르네시떼', latitude: 35.1655, longitude: 128.9548 },
+                { bg_no: '4', bno: '0104', name: '공항(김해)', prev: '덕두', next: '서부산유통', latitude: 35.1782, longitude: 128.9505 },
+                { bg_no: '5', bno: '0105', name: '덕두(김해)', prev: '등구', next: '공항', latitude: 35.1821, longitude: 128.9541 },
+                { bg_no: '6', bno: '0106', name: '등구(김해)', prev: '대저', next: '덕두', latitude: 35.1679, longitude: 128.9538 },
+                { bg_no: '7', bno: '0107', name: '대저(김해)', prev: '평강', next: '등구', latitude: 35.2133, longitude: 128.9606 },
+                { bg_no: '8', bno: '0108', name: '평강(김해)', prev: '대사', next: '대저', latitude: 35.2142, longitude: 128.9508 },
+                { bg_no: '9', bno: '0109', name: '대사(김해)', prev: '불암', next: '평강', latitude: 35.2178, longitude: 128.9384 },
+                { bg_no: '10', bno: '0110', name: '불암(김해)', prev: '지내', next: '대사', latitude: 35.22216258, longitude: 128.9278931 },
+                { bg_no: '11', bno: '0111', name: '지내(김해)', prev: '김해대학', next: '불암', latitude: 35.22750079, longitude: 128.9237205 },
+                { bg_no: '12', bno: '0112', name: '김해대학(김해)', prev: '인제대', next: '지내', latitude: 35.22899575, longitude: 128.9156126 },
+                { bg_no: '13', bno: '0113', name: '인제대(김해)', prev: '김해시청', next: '김해대학', latitude: 35.22810002, longitude: 128.9017368 },
+                { bg_no: '14', bno: '0114', name: '김해시청(김해)', prev: '부원', next: '인제대', latitude: 35.22710363, longitude: 128.8904116 },
+                { bg_no: '15', bno: '0115', name: '부원(김해)', prev: '봉황', next: '김해시청', latitude: 35.22646715, longitude: 128.8839 },
+                { bg_no: '16', bno: '0116', name: '봉황(김해)', prev: '수로왕릉', next: '부원', latitude: 35.22726621, longitude: 128.8743058 },
+                { bg_no: '17', bno: '0117', name: '수로왕릉(김해)', prev: '박물관', next: '봉황', latitude: 35.23282105, longitude: 128.8721413 },
+                { bg_no: '18', bno: '0118', name: '박물관(김해)', prev: '연지공원', next: '수로왕릉', latitude: 35.2400654, longitude: 128.8718635 },
+                { bg_no: '19', bno: '0119', name: '연지공원(김해)', prev: '장신대', next: '박물관', latitude: 35.24965739, longitude: 128.8692912 },
+                { bg_no: '20', bno: '0120', name: '장신대(김해)', prev: '가야대', next: '연지공원', latitude: 35.25955584, longitude: 128.8671134 },
+                { bg_no: '21', bno: '0121', name: '가야대(김해)', prev: '종착역', next: '장신대', latitude: 35.26672766, longitude: 128.8650711 },
 
             ];
 
@@ -349,7 +350,7 @@
 
         // 현재 위치를 기반으로 가까운 지하철 역 10개 찾기
         getCurrentLocation(function (latitude, longitude) {
-            const nearestStations = findNearestStations(latitude, longitude, 5);
+            const nearestStations = findNearestStations(latitude, longitude, 2);
 
             console.log(nearestStations);
 
@@ -379,9 +380,10 @@
                 .done(function (p) {
 
 
-                    $("#stat" + no + "").append("<div class='stat line" + lncd + " sche2'>" + name + "</div>");
-                    $("#next" + no + "").append("<div class='stat line" + lncd + " sche2'>" + next + "</div>");
-                    $("#prev" + no + "").append("<div class='stat line" + lncd + " sche2'>" + prev + "</div>");
+                    $("#stat_up" + no + "").append("<div class='line" + lncd + " sche5 wid_200'>" + name + "</div>");
+                    $("#stat_dn" + no + "").append("<div class='line" + lncd + " sche5 wid_200'>" + name + "</div>");
+                    $("#next" + no + "").append("<div class='line" + lncd + " sche5 wid_100'><i class='fa-solid fa-angles-right'></i> " + next + "</div>");
+                    $("#prev" + no + "").append("<div class='line" + lncd + " sche5 wid_100'><i class='fa-solid fa-angles-right'></i> " + prev + "</div>");
 
 
                     var time = new Date();
@@ -402,6 +404,7 @@
                     var seconds = time.getSeconds();
 
                     var cur_time = (hours) + '' + (minutes < 10 ? `0${minutes}` : minutes) + '' + (seconds < 10 ? `0${seconds}` : seconds);
+                    console.log(cur_time);
 
                     var arr_station = new Array();
                     var arr_up = new Array();
@@ -469,57 +472,11 @@
                     var last_up = arr_up_24station.length - 1;
                     var last_dn = arr_dn_24station.length - 1;
 
-                    if (cur_time > arr_up_24station[last_up][1] && cur_time <= 245959) {
+                    if ((cur_time > arr_up_24station[last_up][1] && cur_time <= 245959) || (cur_time>10000 && cur_time<50000)) {
 
 
-
-                        /*
-    
-                        for (i = 0; i < p.body.length; i++) {
-                            arr_station.push([p.body[i].trnNo, p.body[i].arvTm]);
-                        }
-    
-                        const arr_24station = arr_station.map(row => {
-                            return row.map(str => {
-                                if (str.substring(0, 2) === "00") {
-                                    return "24" + str.substring(2);
-                                } else {
-                                    return str;
-                                }
-                            });
-                        });
-    
-                        // 도착시간을 24시간제로 변경
-    
-                        arr_24station.sort(function (a, b) {
-                            return a[0] - b[0];
-                        });
-                        // 시간순으로 정렬
-                        // console.log(arr_24station);
-    
-                        for (i = 0; i < arr_24station.length; i++) {
-    
-                            new_3sub = cur_time - arr_24station[i][1];
-                            // 현재시간과 도착시간 차이
-    
-                            if (new_3sub < 0) {
-                                if (arr_24station[i][0] % 2 == 0) {
-                                    arr_dn.push(arr_24station[i]);
-                                    //열차번호가 짝수이면 하선
-                                } else {
-                                    arr_up.push(arr_24station[i]);
-                                    //열차번호가 홀수이면 상선
-                                }
-                            }
-                        }
-                        //  $("#day_hann").append(day_han);
-                        var last_up = arr_24station.length - 2;
-                        var last_dn = arr_24station.length - 1;
-    
-                        if (cur_time > arr_24station[last_up][1] && cur_time <= 245959) {
-    */
-                        $("#" + no + "_up").append("열차운행 종료<br>");
-                        $("#" + no + "_up").append("<div class='gr-line'></div>");
+                      //  $("#" + no + "_up").append("열차운행 종료<br>");
+                      //  $("#" + no + "_up").append("<div class='gr-line'></div>");
                         $("#count_" + no + "_up").append("" + sang + "행 열차 종료");
                     } else {
 
@@ -532,10 +489,10 @@
                         for (i = 0; i < length_up; i++) {
                             var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
                             if (i < 2) {
-                                $("#" + no + "_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                                $("#" + no + "_up").append("<div class='sche6'>" + arv_up_tm + "</div>");
                                 $("#" + no + "_up").append("<div class='gr-line'></div>");
                             } else {
-                                $("#" + no + "_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                                $("#" + no + "_up").append("<div class='sche6'>" + arv_up_tm + "</div>");
                             }
                         }
 
@@ -560,24 +517,24 @@
 
                             if (hours < 1 && minutes < 1) {
                                 const countdownElement = document.getElementById("count_" + no + "_up");
-                                countdownElement.innerHTML = `<span style='color:red'><< ${sang}행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                countdownElement.innerHTML = `<span style='color:red'>(${sang}행 ${seconds < 10 ? `0${seconds}` : seconds}초 후 도착)</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "<< " + sang + "행 열차 출발";
+                                    countdownElement.innerHTML = "(" + sang + "행 열차 출발)";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + no + "_up");
-                                countdownElement.innerHTML = `<< ${sang}행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                                countdownElement.innerHTML = `(${sang}행 ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}초 후 도착)`;
                             }
                             // 타겟 날짜가 지나면 종료
 
                         }, 1000);
 
                     }
-                    if (cur_time > arr_dn_24station[last_dn][1] && cur_time <= 245959) {
-                        //  if (cur_time > arr_24station[last_dn][1] && cur_time <= 245959) {
-                        $("#" + no + "_dn").append("열차운행 종료");
-                        $("#" + no + "_dn").append("<div class='gr-line'></div>");
+                    if ((cur_time > arr_dn_24station[last_dn][1] && cur_time <= 245959) || (cur_time>10000 && cur_time<50000)) {
+
+                       // $("#" + no + "_dn").append("열차운행 종료");
+                       // $("#" + no + "_dn").append("<div class='gr-line'></div>");
                         $("#count_" + no + "_dn").append("" + ha + "행 열차 종료");
                     } else {
                         var length_dn = arr_dn.length;
@@ -590,10 +547,10 @@
 
                             var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
                             if (i < 2) {
-                                $("#" + no + "_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                                $("#" + no + "_dn").append("<div class='sche6'>" + arv_dn_tm + "</div>");
                                 $("#" + no + "_dn").append("<div class='gr-line'></div>");
                             } else {
-                                $("#" + no + "_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                                $("#" + no + "_dn").append("<div class='sche6'>" + arv_dn_tm + "</div>");
                             }
                         }
 
@@ -620,14 +577,14 @@
 
                             if (hours < 1 && minutes < 1) {
                                 const countdownElement = document.getElementById("count_" + no + "_dn");
-                                countdownElement.innerHTML = `<span style='color:red'>&nbsp;&nbsp;${ha}행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} >></span>`;
+                                countdownElement.innerHTML = `<span style='color:red'>(${ha}행 ${seconds < 10 ? `0${seconds}` : seconds}초 후 도착)</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "&nbsp;&nbsp;" + ha + "행 열차 출발 >>";
+                                    countdownElement.innerHTML = "(" + ha + "행 열차 출발)";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + no + "_dn");
-                                countdownElement.innerHTML = `&nbsp;&nbsp;${ha}행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} >>`;
+                                countdownElement.innerHTML = `(${ha}행 ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}초 후 도착)`;
                             }
                             // 타겟 날짜가 지나면 종료
                         }, 1000);
@@ -649,9 +606,12 @@
                     console.log(p);
                     console.log(stincd);
 
-                    $("#stat" + bno + "").append("<div class='stat line_bg sche2'>" + name + "</div>");
-                    $("#next" + bno + "").append("<div class='stat line_bg sche2'>" + next + "</div>");
-                    $("#prev" + bno + "").append("<div class='stat line_bg sche2'>" + prev + "</div>");
+                    $("#stat_up" + bno + "").append("<div class='line_bg sche5 wid_200'>" + name + "</div>");
+                    $("#stat_dn" + bno + "").append("<div class='line_bg sche5 wid_200'>" + name + "</div>");
+                    $("#next" + bno + "").append("<div class='line_bg sche5 wid_100'><i class='fa-solid fa-angles-right'></i> " + next + "</div>");
+                    $("#prev" + bno + "").append("<div class='line_bg sche5 wid_100'><i class='fa-solid fa-angles-right'></i> " + prev + "</div>");
+
+                  
 
 
                     var time = new Date();
@@ -760,10 +720,10 @@
                         for (i = 0; i < length_up; i++) {
                             var arv_up_tm = arr_up[i][1].substr(0, 2) + ':' + arr_up[i][1].substr(2, 2) + ':' + arr_up[i][1].substr(4, 2);
                             if (i < 2) {
-                                $("#" + bno + "_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                                $("#" + bno + "_up").append("<div class='sche6'>" + arv_up_tm + "</div>");
                                 $("#" + bno + "_up").append("<div class='gr-line'></div>");
                             } else {
-                                $("#" + bno + "_up").append("<div class='sche1'>" + arv_up_tm + "</div>");
+                                $("#" + bno + "_up").append("<div class='sche6'>" + arv_up_tm + "</div>");
                             }
                         }
 
@@ -788,14 +748,14 @@
 
                             if (hours < 1 && minutes < 1) {
                                 const countdownElement = document.getElementById("count_" + bno + "_up");
-                                countdownElement.innerHTML = `<span style='color:red'><< 사상행   ${hours < 10 ? ` 0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</span>`;
+                                countdownElement.innerHTML = `<span style='color:red'>(사상행 ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}초 후 도착)</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "사상행 열차출발";
+                                    countdownElement.innerHTML = "(사상행 열차출발)";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + bno + "_up");
-                                countdownElement.innerHTML = `<< 사상행   ${hours < 10 ? ` 0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                                countdownElement.innerHTML = `(사상행  ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}초 후 도착)`;
                             }
                             // 타겟 날짜가 지나면 종료
 
@@ -819,10 +779,10 @@
                             var arv_dn_tm = arr_dn[i][1].substr(0, 2) + ':' + arr_dn[i][1].substr(2, 2) + ':' + arr_dn[i][1].substr(4, 2);
 
                             if (i < 2) {
-                                $("#" + bno + "_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                                $("#" + bno + "_dn").append("<div class='sche6'>" + arv_dn_tm + "</div>");
                                 $("#" + bno + "_dn").append("<div class='gr-line'></div>");
                             } else {
-                                $("#" + bno + "_dn").append("<div class='sche1'>" + arv_dn_tm + "</div>");
+                                $("#" + bno + "_dn").append("<div class='sche6'>" + arv_dn_tm + "</div>");
                             }
                         }
 
@@ -851,14 +811,14 @@
 
                             if (hours < 1 && minutes < 1) {
                                 const countdownElement = document.getElementById("count_" + bno + "_dn");
-                                countdownElement.innerHTML = `<span style='color:red'>가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} >></span>`;
+                                countdownElement.innerHTML = `<span style='color:red'>(가야대행 ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}초 후 도착)</span>`;
                                 if (timeLeft < 0) {
                                     clearInterval();
-                                    countdownElement.innerHTML = "가야대행 열차출발 >>";
+                                    countdownElement.innerHTML = "(가야대행 열차출발)";
                                 }
                             } else {
                                 const countdownElement = document.getElementById("count_" + bno + "_dn");
-                                countdownElement.innerHTML = `가야대행 ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} >>`;
+                                countdownElement.innerHTML = `(가야대행 ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}초 후 도착)`;
                             }
 
 
@@ -935,26 +895,44 @@
     <div class="container sche1"><div id="clock"></div> <div id="temp"></div> <div id="region"></div></div>
 
     <script>
-
-        for (i = 0; i < 5; i++) {
-            document.write("<div class='container'>");
-            document.write("<div class='cur_item item1'>");
-            document.write("<p id='next" + i + "' class='sche1'></p>");
-            document.write("<p id='" + i + "_up' class='sche1 up'></p> </div>");
-            document.write("<div class='cur_item item2'>");
-            document.write("<div id='stat" + i + "'></div>");
-            document.write("<div class='blank-line'></div>");
-            document.write("<div id='count_" + i + "_up' class='sche1 up'></div>");
-            document.write("<div class='blank-line'></div>");
-            document.write("<div class='center'></div>");
-            document.write("<div class='blank-line'></div>");
-            document.write("<div id='count_" + i + "_dn' class='sche1 dn'></div></div>");
-            document.write("<div class='cur_item item3'>");
-            document.write("<p id='prev" + i + "' class='sche1'></p>");
-            document.write("<p id='" + i + "_dn' class='sche1 dn'></p> </div></div>");
-
+            document.write("<div class='container2'>");   
+        for (i = 0; i < 2; i++) {
+            document.write("<div class='container4'>");  
+            document.write("<div class='container3'> <div id='stat_up" + i + "' ></div> <div id='next" + i + "' class='sche1'></div></div>"); 
+            document.write("<div id='count_" + i + "_up' class='sche6 up'></div>");
+            document.write("<div> <p id='" + i + "_up' class='sche5 up'></p> </div></div><br>");
+            document.write("<div class='container4'>");  
+            document.write("<div class='container3'> <div id='stat_dn" + i + "' ></div> <div id='prev" + i + "' class='sche1'></div></div>"); 
+            document.write("<div id='count_" + i + "_dn' class='sche6 dn'></div>");
+            document.write("<div> <p id='" + i + "_dn' class='sche5 dn'></p> </div></div><br>");
         }
+        document.write("</div>"); 
     </script>
+
+<!--
+<script>
+
+    for (i = 0; i < 3; i++) {
+        document.write("<div class='container'>");
+        document.write("<div class='cur_item item1'>");
+        document.write("<p id='next" + i + "' class='sche1'></p>");
+        document.write("<p id='" + i + "_up' class='sche1 up'></p> </div>");
+        document.write("<div class='cur_item item2'>");
+        document.write("<div id='stat" + i + "'></div>");
+        document.write("<div class='blank-line'></div>");
+        document.write("<div id='count_" + i + "_up' class='sche1 up'></div>");
+        document.write("<div class='blank-line'></div>");
+        document.write("<div class='center'></div>");
+        document.write("<div class='blank-line'></div>");
+        document.write("<div id='count_" + i + "_dn' class='sche1 dn'></div></div>");
+        document.write("<div class='cur_item item3'>");
+        document.write("<p id='prev" + i + "' class='sche1'></p>");
+        document.write("<p id='" + i + "_dn' class='sche1 dn'></p> </div></div>");
+
+    }
+</script>
+
+-->
 
 <ins class="kakao_ad_area" style="display:none;" 
 data-ad-unit = "DAN-Nw7cQxtbZzjbbWJc" 
@@ -962,6 +940,8 @@ data-ad-width = "320"
 data-ad-height = "50"></ins> 
 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 
+
+<!--
     <script>
         setInterval(function () {
             location.reload();
@@ -975,7 +955,7 @@ data-ad-height = "50"></ins>
         }
     </script>
 
-
+-->
 </body>
 
 </html>
