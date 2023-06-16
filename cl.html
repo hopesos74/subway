@@ -382,9 +382,16 @@
 
                     $("#stat_up" + no + "").append("<div class='line" + lncd + " sche5 wid_200'>" + name + "</div>");
                     $("#stat_dn" + no + "").append("<div class='line" + lncd + " sche5 wid_200'>" + name + "</div>");
-                    $("#next" + no + "").append("<div class='line" + lncd + " sche5 wid_100'><i class='fa-solid fa-angles-right'></i> " + next + "</div>");
-                    $("#prev" + no + "").append("<div class='line" + lncd + " sche5 wid_100'><i class='fa-solid fa-angles-right'></i> " + prev + "</div>");
-
+                    if(stincd == 101 || stincd == 201 || stincd == 301 || stincd == 401) {
+                        $("#next" + no + "").append("<div class='line" + lncd + " sche5 wid_100'> - " + next + " - </div>");
+                    } else {
+                        $("#next" + no + "").append("<div class='line" + lncd + " sche5 wid_100'><i class='fa-solid fa-angles-right'></i> " + next + "</div>");
+                    }
+                    if(stincd == 195 || stincd == 243 || stincd == 317 || stincd == 414) {
+                    $("#prev" + no + "").append("<div class='line" + lncd + " sche5 wid_100'> - " + prev + " - </div>");
+                    } else {
+                        $("#prev" + no + "").append("<div class='line" + lncd + " sche5 wid_100'><i class='fa-solid fa-angles-right'></i> " + prev + "</div>");
+                    }
 
                     var time = new Date();
                     var years = time.getFullYear();
