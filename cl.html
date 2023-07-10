@@ -108,7 +108,7 @@
                     callback(position.coords.latitude, position.coords.longitude);
                     x = position.coords.latitude;
                     y = position.coords.longitude;
-
+                    /*
                     $.ajax({
                         method: "GET",
                         url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + x + "&lon=" + y + "&appid=49c020e9c5d0d8084687f4fbcc283554&units=metric"
@@ -121,7 +121,7 @@
 
 
                         });
-
+                        */
                     $.ajax({
                         method: "GET",
                         url: "https://dapi.kakao.com/v2/local/geo/coord2address.json?x=" + y + "&y=" + x + "&input_coord=WGS84",
